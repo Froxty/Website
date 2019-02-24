@@ -8,8 +8,9 @@ body {
   font-weight: 100;
 }
 
-.green {
- color: green; 
+h1 {
+ color: green;
+ text-align: center;
 }
 .bold {
    font-weight: bold; 
