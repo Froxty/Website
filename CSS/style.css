@@ -11,6 +11,9 @@ body {
 .head {
   
 }
-h1 {
+.green {
  color: green; 
+}
+.bold {
+   font-weight: bold; 
 }
