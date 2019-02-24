@@ -1,9 +1,4 @@
-html, body {
-  margin: 0;
-  padding: 0;
-}
-
-body {
+p {
   font-family: Arial;
   font-weight: 100;
 }
