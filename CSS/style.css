@@ -11,32 +11,37 @@ p {
 h1 {
   color: green;
   text-align: center;
+  font-size: 30px;
 }
 
 h2 {
   color: green;
   text-align: center;
-  
+  font-size: 30px;
 }
 
 h3 {
   color: green;
   text-align: center;
+  font-size: 30px;
 }
 
 h4 {
   color: green;
   text-align: center;
+  font-size: 30px;
 }
 
 h5 {
   color: green;
   text-align: center;
+  font-size: 30px;
 }
 
 h6 {
   color: green;
   text-align: center;
+  font-size: 30px;
 }
 .bold {
    font-weight: bold; 
