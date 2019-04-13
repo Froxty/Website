@@ -4,6 +4,10 @@ body {
   background-color: black;
   padding: 50px 30px;
   border 1px solid green;
+  text-align: center;
+}
+div {
+  
 }
 
 p {
