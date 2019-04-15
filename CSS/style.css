@@ -59,3 +59,7 @@ hr {
 div1 {
   text-align: left;
 }
+video {
+    display: block;
+    margin: 0 auto;
+}
