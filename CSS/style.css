@@ -11,6 +11,9 @@ p {
 p.left {
   text-align: left;
 }
+a:visited {
+  color: orange;
+}
 h1 {
   color: green;
   text-align: center;
