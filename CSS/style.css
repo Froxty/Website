@@ -19,24 +19,9 @@ h1 {
 h2 {
   color: green;
   text-align: center;
-  font-size: 30px;
+  font-size: 25px;
 }
 h3 {
-  color: green;
-  text-align: center;
-  font-size: 25px;
-}
-h4 {
-  color: green;
-  text-align: center;
-  font-size: 25px;
-}
-h5 {
-  color: green;
-  text-align: center;
-  font-size: 25px;
-}
-h6 {
   color: green;
   text-align: left;
   font-size: 25px;
