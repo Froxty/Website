@@ -12,7 +12,7 @@ p.left {
   text-align: left;
 }
 a {
-  color: green;
+  color: red;
 }
 a:visited {
   color: orange;
