@@ -1,91 +1,278 @@
 <!DOCTYPE html>
-<!--My name is Luis Fernandez and this is my Student Profilo -->
-<html lang="en-US">
-<head>  
-<meta charset="UTF-8">
-  <title>Luis Fernandez Student Portfolio</title>
-    <link href="CSS/style.css" type="text/css" rel="stylesheet">
-</head>
-  <body>
-    <svg width="570" height="100">
-      <rect width="570" height="100" style="fill:rgb(100,250,0);stroke-width:10;stroke:rgb(0,0,0)" />
-      <text fill="f0000000" font-size="45" font-family="Arial" x="30" y="65">Luis Fernandez's Website</text>
-    </svg>
-    <h1>About Me</h1>
-    <hr />
-      <p>Hello, my name is Luis Fernandez. I'm currently a student studying at FGCU trying to get my B.S in Software Engineering.
-        I was born in Miami and moved to Cape Coral in 2000 where I've been living here till the present. Just to tell you a little
-        about myself I'm a huge gaming nerd it's been my hobby since, I was little.I play most everything 
-        Moba/MMOs/FPS/Card/Strategy/RTS I started on console when I was really young and transitioned into PC where I do most if not
-        all my gaming. My dad introducted me to computers really young. I remember him showing me the basic of dos and getting a new
-        computer with windows 95.I would love to learn to navigate it as kid I became extremely fascinated with computers. I remember 
-        taking them apart and reassembling them always trying to learn a little more. I remember getting a crappy emachine as my first
-        computer I would always save my money and slowly aquire better and better computer hardware. The passion obviously carried out
-         my adult life even to the present. Naturally I want to go something into the computer field. I decided I want to pursue
-        a career in software engineering. Outside of school I would like to pursue a mechanical knowledge as well.</p> 
-    <h1>Education</h1>
-    <hr />
-      <p>To date these are some courses that I've passed and believe will help me in my professional career as well as in various aspects in life. From simple</p>
-      <div style="text-align: left;">
-          <ul>
-            <li>Calculus 1 & 2 (Currently working on 3)</li>
-            <li>Economics</li>
-            <li>Physics 1 & 2</li>
-            <li>Statistical Methods</li>
-            <li>Java Programming</li>
-            <li>Intro to Programming</li>
-            <li>Computer Software & Technology</li>
-          </ul>
-    </div>
-    <h2>Some of my work</h2>
-    <hr />
-       <p>Believe it or not you're looking at one! This will be my very first html project as well as my first website!</p>
-       <p><a href="https://scratch.mit.edu/projects/283899924/" target="_blank">Shadow's Cage Return</a></p>
-    <h2>My Top Accomplishments</h2>
-    <hr />
-      <p>To date I would say my biggest accomplishment would be my A.A. degree. It gave me the staple to be able to enter the next step which is focusing on my B.S by letting me continue my education at FGCU.</p>
-    <h2>Where to find me?</h2>
-    <hr />
-    <div style="text-align: left;">
-      <ul>
-        <li><img src="https://cdn2.iconfinder.com/data/icons/social-icons-33/128/Github-512.png" alt="GitHub Icon" height="20" width="20"><a href="https://github.com/Froxty" target="_blank">GitHub</a></li>
-        <li><img src="https://s3.amazonaws.com/codecademy-content/courses/freelance-1/unit-7/logo.png" alt="CodeAcademy Icon" height="20" width="50"><a href="https://www.codecademy.com/Froxty" target="_blank">CodeAcademy</a></li>
-        <li><img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/square-linkedin-512.png" alt="LinkedIn Icon" height="20" width="20"><a href="https://www.linkedin.com/in/luis-fernandez-94b55795/" target="_blank">Linkedin</a></li>
-        <li><img src="https://d29fhpw069ctt2.cloudfront.net/icon/image/38712/preview.svg" height="20" alt="HackerRank Icon" width="20"><a href="hhttps://www.hackerrank.com/Froxtman1337" target="_blank">HackerRank</a></li>
-        <li><img src="https://cdn2.iconfinder.com/data/icons/gaming-platforms-squircle/250/steam_squircle-512.png" alt="Steam Icon" height="20" width="20"><a href="https://steamcommunity.com/id/Froxtman1337/" target="_blank">Steam</a></li>
-      </ul>
-    </div>
-    <canvas id="myCanvas" width="400" height="100"></canvas> <!--This is -->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Luis Fernandez — Game Developer</title>
+  <meta name="description" content="Portfolio of Luis Fernandez — Game developer focused on Unity, Roblox, gameplay systems, and VFX.">
+  <meta name="color-scheme" content="dark light" />
+  <style>
+    :root {
+      --bg: #0b0c10;
+      --panel: #111218;
+      --text: #e8e8ea;
+      --muted: #a9abb6;
+      --brand: #7ee787;  /* soft green */
+      --accent: #64b5f6; /* soft blue */
+      --link: #9cc1ff;
+      --card: #161823;
+      --border: #24273a;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f7f8fb;
+        --panel: #ffffff;
+        --text: #0f1115;
+        --muted: #4b5565;
+        --brand: #16794c;
+        --accent: #1565c0;
+        --link: #0b57d0;
+        --card: #ffffff;
+        --border: #e6e9f2;
+        --shadow: 0 8px 24px rgba(2,8,20,.06);
+      }
+    }
 
-      <script>
-        var canvas = document.getElementById("myCanvas");
-        var ctx = canvas.getContext('2d');
-        ctx.shadowColor = "rgb(190, 190, 190)";
-        ctx.shadowOffsetX = 10;
-        ctx.shadowOffsetY = 10
-        ctx.shadowBlur = 10;
-        ctx.font = "25px arial";
-        var gradient = ctx.createLinearGradient(0, 0, 150, 100);
-        gradient.addColorStop(0, "rgb(0, 100, 50)");
-        gradient.addColorStop(1, "rgb(120, 230, 70)");
-        ctx.fillStyle = gradient;
-        ctx.fillText("Graphics and Media", 80, 50);
-      </script>
-    <hr />
-    <div style="text-align: left;">
-      <ul>
-        <li><p>This is actually a Ted Talks by Jane McGonigal that resonated with me. I was conversation with my sister one day over the phone and she brought up this video and said it reminded her about me. I would strongly suggest watching Jane suggest that gamers could solve the world greatest problems!</p>
-          <video width="720" height="480" controls><source src="GamingcanmakeabetterworldJaneMcGonigal.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video></li>
-        <li><a href="https://drive.google.com/open?id=1MssE-9C2ixuZdLBm_As_dTho5RqwF_Uo">Fields Report</a></li>
-        <li><p>This is an audio clip I created for the game listed above using a clip of my sugar glider "Shadow" actual crabbing(What is <a href="http://asgv.org/pdf/noises%202.pdf">Crabbing</a>) and trimmed the track for Shadow's Fury.</p> <audio controls><source src="ShadowDeath.wav" type="audio/wav"> Your browser does not support the audio element.></audio></li>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+      color: var(--text); background: radial-gradient(1200px 800px at 10% -10%, rgba(100,181,246,.12), transparent 60%),
+                              radial-gradient(1000px 700px at 110% 10%, rgba(126,231,135,.10), transparent 55%),
+                              var(--bg);
+    }
+
+    /* Header / Nav */
+    header {
+      position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(8px);
+      background: color-mix(in oklab, var(--panel) 80%, transparent);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav {
+      max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between;
+      padding: .8rem 1rem;
+    }
+    .brand { display:flex; gap:.6rem; align-items:center; text-decoration:none; color:var(--text); font-weight:700; }
+    .brand-badge { width:28px; height:28px; border-radius:8px; background: linear-gradient(135deg, var(--accent), var(--brand)); box-shadow: var(--shadow); }
+    nav a { color: var(--text); text-decoration: none; opacity:.9; padding:.4rem .7rem; border-radius:10px; }
+    nav a:hover, nav a:focus { background: var(--card); outline: none; }
+
+    .nav-links { display:flex; gap:.25rem; align-items:center; }
+    .menu-btn { display:none; background:none; border:1px solid var(--border); color:var(--text); padding:.4rem .6rem; border-radius:10px; }
+
+    @media (max-width: 780px) {
+      .nav-links { display:none; }
+      .menu-btn { display:block; }
+      .nav.open .nav-links { display:flex; position:absolute; left:0; right:0; top:56px; background: var(--panel); border-bottom:1px solid var(--border); flex-direction:column; padding:.75rem; }
+      .nav.open .nav-links a { width:100%; }
+    }
+
+    /* Hero */
+    .hero { max-width:1100px; margin: 0 auto; padding: 4.5rem 1rem 2rem; display:grid; grid-template-columns: 1.2fr .8fr; gap: 2rem; align-items:center; }
+    .hero h1 { font-size: clamp(1.8rem, 3.5vw, 3rem); line-height:1.2; margin:.2rem 0 .6rem; }
+    .kicker { color: var(--brand); font-weight:700; letter-spacing:.05em; text-transform:uppercase; font-size:.9rem; }
+    .hero p { color: var(--muted); margin: .5rem 0 1.25rem; }
+    .hero .cta { display:flex; gap:.6rem; flex-wrap:wrap; }
+    .btn { display:inline-flex; align-items:center; gap:.5rem; padding:.65rem .9rem; border-radius:12px; border:1px solid var(--border); text-decoration:none; color:var(--text); background:var(--card); box-shadow: var(--shadow); }
+    .btn.primary { background: linear-gradient(135deg, color-mix(in oklab, var(--accent) 70%, var(--brand)), var(--brand)); border-color: transparent; color:#fff; }
+    .btn:hover { transform: translateY(-1px); }
+    .hero-art { border:1px solid var(--border); border-radius:16px; background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0)), url('https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1600&auto=format&fit=crop') center/cover; min-height: 260px; box-shadow: var(--shadow); }
+
+    @media (max-width: 980px) { .hero { grid-template-columns: 1fr; } }
+
+    /* Sections */
+    section { max-width:1100px; margin: 0 auto; padding: 3rem 1rem; }
+    section h2 { font-size: clamp(1.4rem, 2.2vw, 2rem); margin: 0 0 1rem; }
+    .muted { color: var(--muted); }
+    .pill { display:inline-block; padding:.25rem .6rem; border:1px solid var(--border); border-radius:999px; font-size:.85rem; margin:.2rem .3rem .2rem 0; }
+
+    /* Projects */
+    .grid { display:grid; gap: 1rem; grid-template-columns: repeat(3, 1fr); }
+    @media (max-width: 980px) { .grid { grid-template-columns: repeat(2, 1fr);} }
+    @media (max-width: 640px) { .grid { grid-template-columns: 1fr;} }
+
+    .card { background: var(--card); border:1px solid var(--border); border-radius:16px; overflow:hidden; box-shadow: var(--shadow); display:flex; flex-direction:column; }
+    .thumb { aspect-ratio: 16/9; background: #0e0f16; border-bottom:1px solid var(--border); background-size: cover; background-position:center; }
+    .card .body { padding: .9rem; }
+    .card h3 { margin:.2rem 0 .4rem; font-size:1.05rem; }
+    .card p { margin:0 0 .8rem; color: var(--muted); }
+    .card .tags { margin-top:auto; padding:.9rem; border-top:1px solid var(--border); display:flex; flex-wrap:wrap; gap:.4rem; }
+
+    /* About */
+    .about { display:grid; grid-template-columns: 1fr 1fr; gap:2rem; }
+    .about p { margin:.2rem 0 1rem; }
+    .about .panel { background: var(--card); border:1px solid var(--border); border-radius:16px; padding:1rem; }
+    @media (max-width: 880px){ .about { grid-template-columns:1fr; } }
+
+    /* Contact */
+    .contact { display:grid; gap:1rem; grid-template-columns: 1fr 1fr; }
+    .contact .panel { background: var(--card); border:1px solid var(--border); border-radius:16px; padding:1rem; }
+    .list { list-style:none; padding:0; margin:0; }
+    .list li { padding:.5rem 0; display:flex; align-items:center; gap:.6rem; }
+    .list a { color: var(--link); text-decoration:none; }
+
+    footer { max-width:1100px; margin: 0 auto; padding: 2rem 1rem 4rem; color: var(--muted); }
+    .hr { height:1px; background: linear-gradient(90deg, transparent, var(--border), transparent); margin: 2rem 0; }
+
+    /* Accessibility extras */
+    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn:hover { transform:none; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav" id="topNav">
+      <a class="brand" href="#home" aria-label="Home">
+        <span class="brand-badge" aria-hidden="true"></span>
+        <span>Luis Fernandez</span>
+      </a>
+      <button class="menu-btn" aria-expanded="false" aria-controls="navLinks" id="menuBtn">Menu</button>
+      <nav class="nav-links" id="navLinks">
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+        <a href="resume.pdf" target="_blank" rel="noopener">Résumé</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home" class="hero" aria-labelledby="hero-title">
+    <div>
+      <div class="kicker">Game Developer • Systems • VFX</div>
+      <h1 id="hero-title">Designing and building interactive worlds.</h1>
+      <p>I’m Luis Fernandez, a game developer focused on gameplay systems, combat, and player‑feedback polish. I work primarily in <strong>Unity</strong> and <strong>Roblox</strong> (Lua), and I love shipping clean, modular code with clear UX.
+      </p>
+      <div class="cta">
+        <a class="btn primary" href="#projects">View Projects</a>
+        <a class="btn" href="#contact">Get in Touch</a>
+      </div>
+    </div>
+    <div class="hero-art" role="img" aria-label="Abstract image of a developer workspace with a controller"></div>
+  </main>
+
+  <section id="projects" aria-labelledby="projects-title">
+    <h2 id="projects-title">Featured Projects</h2>
+    <p class="muted">A few recent builds and prototypes. More on <a href="https://github.com/Froxty" target="_blank" rel="noopener">GitHub</a>.</p>
+    <div class="grid" role="list">
+      <!-- PROJECT 1 -->
+      <article class="card" role="listitem">
+        <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1527248816306-57c5a181a7fb?q=80&w=1600&auto=format&fit=crop');"></div>
+        <div class="body">
+          <h3>Elemental Escape (Unity)</h3>
+          <p>3D puzzle/FPS prototype with Fire/Frost spells, status effects, and a boss encounter. Built modular <em>buff/debuff</em> system with stacking DoTs/HoTs.</p>
+          <a class="btn" href="#" aria-disabled="true">Demo coming soon</a>
+        </div>
+        <div class="tags">
+          <span class="pill">Unity</span>
+          <span class="pill">C#</span>
+          <span class="pill">URP</span>
+          <span class="pill">VFX Graph</span>
+        </div>
+      </article>
+      <!-- PROJECT 2 -->
+      <article class="card" role="listitem">
+        <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1636487651191-86e3614bc7df?q=80&w=1600&auto=format&fit=crop');"></div>
+        <div class="body">
+          <h3>Color Match (Roblox)</h3>
+          <p>Multiplayer color‑matching mini‑game: server-generated target color, accuracy scoring, timer/round system, and persistent player stats.</p>
+          <a class="btn" href="#" aria-disabled="true">Repo private</a>
+        </div>
+        <div class="tags">
+          <span class="pill">Roblox</span>
+          <span class="pill">Lua</span>
+          <span class="pill">DataStore</span>
+        </div>
+      </article>
+      <!-- PROJECT 3 -->
+      <article class="card" role="listitem">
+        <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1605901309584-818e25960a8b?q=80&w=1600&auto=format&fit=crop');"></div>
+        <div class="body">
+          <h3>Buff/Debuff System (Unity Package)</h3>
+          <p>Reusable status framework: stacks, durations, cleanses, slows, DoTs/HoTs, homing projectiles hooks. Inspector‑friendly and extensible.</p>
+          <a class="btn" href="#" aria-disabled="true">Docs soon</a>
+        </div>
+        <div class="tags">
+          <span class="pill">Unity</span>
+          <span class="pill">C#</span>
+          <span class="pill">Systems</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="about" class="about" aria-labelledby="about-title">
+    <div>
+      <h2 id="about-title">About Me</h2>
+      <p>I’m a systems-minded developer who loves building mechanics that feel responsive and readable. I iterate quickly, keep code modular, and value strong player feedback through VFX, sound, and smart UI.</p>
+      <p>Tools I enjoy: Unity (URP/HDRP, Shader Graph, VFX Graph), C#, Roblox Studio (Lua), Blender, Substance 3D Painter, and Git. I’ve also done client‑server work and multiplayer experiments.</p>
+    </div>
+    <aside class="panel" aria-labelledby="highlights-title">
+      <h3 id="highlights-title">Highlights</h3>
+      <ul class="list">
+        <li>⚙️ Built modular <strong>status effect</strong> framework (stacking, cleanse, slows).</li>
+        <li>🧪 Designed <strong>combat prototypes</strong> with homing projectiles & barrage patterns.</li>
+        <li>🎮 Led <strong>Roblox multiplayer</strong> mini‑games with persistent player stats.</li>
+      </ul>
+    </aside>
+  </section>
+
+  <section id="skills" aria-labelledby="skills-title">
+    <h2 id="skills-title">Skills</h2>
+    <div>
+      <span class="pill">Unity</span>
+      <span class="pill">C#</span>
+      <span class="pill">Roblox / Lua</span>
+      <span class="pill">Gameplay Systems</span>
+      <span class="pill">VFX / Shader Graph</span>
+      <span class="pill">Prototyping</span>
+      <span class="pill">Git / GitHub</span>
+      <span class="pill">Blender</span>
+      <span class="pill">Substance Painter</span>
+    </div>
+  </section>
+
+  <section id="contact" class="contact" aria-labelledby="contact-title">
+    <div class="panel">
+      <h2 id="contact-title">Contact</h2>
+      <p class="muted">Open to internships, junior roles, and collaboration on indie prototypes.</p>
+      <ul class="list">
+        <li>📧 <a href="mailto:luis@example.com">luis@example.com</a></li>
+        <li>💼 <a href="https://www.linkedin.com/in/luis-fernandez-94b55795/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li>🧑‍💻 <a href="https://github.com/Froxty" target="_blank" rel="noopener">GitHub</a></li>
+        <li>🎮 <a href="#" aria-disabled="true">Itch.io (soon)</a></li>
       </ul>
     </div>
-    <a href="http://www.w3.org/html/logo/"><img src="https://www.w3.org/html/logo/badge/html5-badge-h-css3-semantics.png" width="128" height="64" alt="HTML5 Powered with CSS3 / Styling, and Semantics" title="HTML5 Powered with CSS3 / Styling, and Semantics"></a>
-    <h2>Usability & Accessibility</h2>
-    <hr />
-      <p>I've structured the site to be visually easy to navigate as well as made it all scalible relative to the user's broswer.(For instance text will align regardless of resolution or zoom). I've used a black background and took into account the color of text,hyperlinks, and visited links color and made it sufficiently contrasted.</p>
-      
-  </body>
+    <div class="panel">
+      <h3>Quick Intro</h3>
+      <p>Hi! I’m Luis — I blend engineering and design to ship small but polished game systems. If you like what you see, feel free to reach out. I’d love to chat about opportunities or feedback on my work.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="hr" role="presentation"></div>
+    <small>© <span id="y">2025</span> Luis Fernandez. Built with vanilla HTML/CSS. </small>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const nav = document.getElementById('topNav');
+    const links = document.getElementById('navLinks');
+    menuBtn?.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(open));
+    });
+
+    // Close menu after selecting a link (mobile)
+    links?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      nav.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }));
+
+    // Year stamp
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>
