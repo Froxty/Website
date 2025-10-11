@@ -1,48 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!--
+    =============================================================
+    Luis Fernandez — Game Developer Portfolio (HTML)
+    -------------------------------------------------------------
+    HOW THIS FILE IS ORGANIZED
+    1) <head>       : metadata + link to the external CSS (CSS/style.css)
+    2) <header>     : sticky navigation with in‑page anchors
+    3) <main.hero>  : the “hero” intro banner with headline + CTAs
+    4) <section>    : Projects, About, Skills, Contact
+    5) <footer>     : copyright and small details
+
+    WHAT TO EDIT MOST OFTEN
+    - Nav links (header > nav)
+    - Hero text (main.hero)
+    - Project cards (section#projects)
+    - About blurb + highlights (section#about)
+    - Contact info + links (section#contact)
+
+    ACCESSIBILITY NOTES
+    - Landmarks: <header>, <main>, <section>, <footer>
+    - Headings: <h1> appears once; each section has an <h2>
+    - aria-labelledby ties sections to their titles
+    - Buttons/links are keyboard-focusable; mobile menu has aria-expanded
+
+    DEPLOY
+    - Keep the external stylesheet at: CSS/style.css (case‑sensitive)
+    - If you add a custom domain, drop a CNAME file at repo root
+    =============================================================
+  -->
+
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Luis Fernandez — Game Developer</title>
   <meta name="description" content="Portfolio of Luis Fernandez — Game developer focused on Unity, Roblox, gameplay systems, and VFX.">
+  <!-- Color scheme hint allows OS dark/light to pick the right palette from CSS variables -->
   <meta name="color-scheme" content="dark light" />
+
+  <!--
+    Link to the single external stylesheet containing all colors/layout.
+    If you move the file, update the path (remember: GitHub Pages is case‑sensitive).
+  -->
   <link rel="stylesheet" href="CSS/style.css">
 </head>
+
 <body>
+  <!-- =============================================================
+       Sticky navigation bar (sits at the top while scrolling)
+       - .brand goes back to the top of the page
+       - nav links jump to sections by id (e.g., #projects)
+       - On small screens, a simple JS toggles the menu open/closed
+     ============================================================= -->
   <header>
     <div class="nav" id="topNav">
       <a class="brand" href="#home" aria-label="Home">
+        <!-- Decorative badge; purely visual -->
         <span class="brand-badge" aria-hidden="true"></span>
         <span>Luis Fernandez</span>
       </a>
+
+      <!-- Mobile menu toggle; JS flips aria-expanded and opens the menu -->
       <button class="menu-btn" aria-expanded="false" aria-controls="navLinks" id="menuBtn">Menu</button>
+
+      <!-- Navigation links; keep hrefs in sync with section ids below -->
       <nav class="nav-links" id="navLinks">
         <a href="#projects">Projects</a>
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
+        <!-- Replace resume.pdf with your actual file name or remove this link -->
         <a href="resume.pdf" target="_blank" rel="noopener">Résumé</a>
       </nav>
     </div>
   </header>
 
+  <!-- =============================================================
+       HERO: First screen visitors see
+       - Edit the kicker, headline, and paragraph to shape your pitch
+       - The right column is an illustrative image (can be a GIF/screenshot)
+     ============================================================= -->
   <main id="home" class="hero" aria-labelledby="hero-title">
     <div>
       <div class="kicker">Game Developer • Systems • VFX</div>
       <h1 id="hero-title">Designing and building interactive worlds.</h1>
-      <p>I’m Luis Fernandez, a game developer focused on gameplay systems, combat, and player-feedback polish. I work primarily in <strong>Unity</strong> and <strong>Roblox</strong> (Lua), and I love shipping clean, modular code with clear UX.
+      <p>
+        I’m Luis Fernandez, a game developer focused on gameplay systems, combat,
+        and player‑feedback polish. I work primarily in <strong>Unity</strong> and
+        <strong>Roblox</strong> (Lua), and I love shipping clean, modular code with clear UX.
       </p>
       <div class="cta">
+        <!-- Calls‑to‑action; adjust targets as you like -->
         <a class="btn primary" href="#projects">View Projects</a>
         <a class="btn" href="#contact">Get in Touch</a>
       </div>
     </div>
+
+    <!-- Accessible decorative image; swap URL via CSS background in style.css if preferred -->
     <div class="hero-art" role="img" aria-label="Abstract image of a developer workspace with a controller"></div>
   </main>
 
+  <!-- =============================================================
+       PROJECTS: Three sample cards
+       - Duplicate an <article> to add another project
+       - Update the inline background-image URL or convert to an <img> inside
+       - Use the tags row for quick tech highlights
+     ============================================================= -->
   <section id="projects" aria-labelledby="projects-title">
     <h2 id="projects-title">Featured Projects</h2>
     <p class="muted">A few recent builds and prototypes. More on <a href="https://github.com/Froxty" target="_blank" rel="noopener">GitHub</a>.</p>
+
     <div class="grid" role="list">
       <!-- PROJECT 1 -->
       <article class="card" role="listitem">
@@ -59,12 +126,13 @@
           <span class="pill">VFX Graph</span>
         </div>
       </article>
+
       <!-- PROJECT 2 -->
       <article class="card" role="listitem">
         <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1636487651191-86e3614bc7df?q=80&w=1600&auto=format&fit=crop');"></div>
         <div class="body">
           <h3>Color Match (Roblox)</h3>
-          <p>Multiplayer color-matching mini-game: server-generated target color, accuracy scoring, timer/round system, and persistent player stats.</p>
+          <p>Multiplayer color‑matching mini‑game: server-generated target color, accuracy scoring, timer/round system, and persistent player stats.</p>
           <a class="btn" href="#" aria-disabled="true">Repo private</a>
         </div>
         <div class="tags">
@@ -73,12 +141,13 @@
           <span class="pill">DataStore</span>
         </div>
       </article>
+
       <!-- PROJECT 3 -->
       <article class="card" role="listitem">
         <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1605901309584-818e25960a8b?q=80&w=1600&auto=format&fit=crop');"></div>
         <div class="body">
           <h3>Buff/Debuff System (Unity Package)</h3>
-          <p>Reusable status framework: stacks, durations, cleanses, slows, DoTs/HoTs, homing projectiles hooks. Inspector-friendly and extensible.</p>
+          <p>Reusable status framework: stacks, durations, cleanses, slows, DoTs/HoTs, homing projectiles hooks. Inspector‑friendly and extensible.</p>
           <a class="btn" href="#" aria-disabled="true">Docs soon</a>
         </div>
         <div class="tags">
@@ -90,22 +159,31 @@
     </div>
   </section>
 
+  <!-- =============================================================
+       ABOUT: Personal blurb + bullet highlights
+       - Left column is freeform text
+       - Right column is a small panel of quick wins/claims
+     ============================================================= -->
   <section id="about" class="about" aria-labelledby="about-title">
     <div>
       <h2 id="about-title">About Me</h2>
       <p>I’m a systems-minded developer who loves building mechanics that feel responsive and readable. I iterate quickly, keep code modular, and value strong player feedback through VFX, sound, and smart UI.</p>
-      <p>Tools I enjoy: Unity (URP/HDRP, Shader Graph, VFX Graph), C#, Roblox Studio (Lua), Blender, Substance 3D Painter, and Git. I’ve also done client-server work and multiplayer experiments.</p>
+      <p>Tools I enjoy: Unity (URP/HDRP, Shader Graph, VFX Graph), C#, Roblox Studio (Lua), Blender, Substance 3D Painter, and Git. I’ve also done client‑server work and multiplayer experiments.</p>
     </div>
     <aside class="panel" aria-labelledby="highlights-title">
       <h3 id="highlights-title">Highlights</h3>
       <ul class="list">
         <li>⚙️ Built modular <strong>status effect</strong> framework (stacking, cleanse, slows).</li>
         <li>🧪 Designed <strong>combat prototypes</strong> with homing projectiles & barrage patterns.</li>
-        <li>🎮 Led <strong>Roblox multiplayer</strong> mini-games with persistent player stats.</li>
+        <li>🎮 Led <strong>Roblox multiplayer</strong> mini‑games with persistent player stats.</li>
       </ul>
     </aside>
   </section>
 
+  <!-- =============================================================
+       SKILLS: Simple tag list of your core tools/strengths
+       - Add/remove spans as needed; order suggests priority
+     ============================================================= -->
   <section id="skills" aria-labelledby="skills-title">
     <h2 id="skills-title">Skills</h2>
     <div>
@@ -121,6 +199,11 @@
     </div>
   </section>
 
+  <!-- =============================================================
+       CONTACT: Ways to reach you
+       - Replace email with your real address
+       - Add itch.io, portfolio PDFs, or other socials here
+     ============================================================= -->
   <section id="contact" class="contact" aria-labelledby="contact-title">
     <div class="panel">
       <h2 id="contact-title">Contact</h2>
@@ -138,28 +221,36 @@
     </div>
   </section>
 
+  <!-- =============================================================
+       FOOTER: Small print + dynamic year stamp
+     ============================================================= -->
   <footer>
     <div class="hr" role="presentation"></div>
     <small>© <span id="y">2025</span> Luis Fernandez. Built with vanilla HTML/CSS. </small>
   </footer>
 
+  <!-- =============================================================
+       Small script for: mobile menu toggle + current year
+       - No frameworks; safe for GitHub Pages
+     ============================================================= -->
   <script>
-    // Mobile menu toggle
     const menuBtn = document.getElementById('menuBtn');
     const nav = document.getElementById('topNav');
     const links = document.getElementById('navLinks');
+
+    // Mobile: open/close the nav, keep assistive tech informed
     menuBtn?.addEventListener('click', () => {
       const open = nav.classList.toggle('open');
       menuBtn.setAttribute('aria-expanded', String(open));
     });
 
-    // Close menu after selecting a link (mobile)
+    // Close the menu after a link is chosen (nice on small screens)
     links?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
       nav.classList.remove('open');
       menuBtn.setAttribute('aria-expanded', 'false');
     }));
 
-    // Year stamp
+    // Keep the footer year current automatically
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
 </body>
