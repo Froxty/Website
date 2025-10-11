@@ -3,98 +3,158 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Luis Fernandez — Game Developer Portfolio</title>
+  <title>Luis Fernandez — Game Developer</title>
   <meta name="description" content="Portfolio of Luis Fernandez — Game developer focused on Unity, Roblox, gameplay systems, and VFX.">
+  <meta name="color-scheme" content="dark light" />
+  <!-- point to the external CSS file -->
   <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
-
-  <!-- Navigation -->
   <header>
-    <nav class="navbar">
-      <h1 class="logo">Luis Fernandez</h1>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+    <div class="nav" id="topNav">
+      <a class="brand" href="#home" aria-label="Home">
+        <span class="brand-badge" aria-hidden="true"></span>
+        <span>Luis Fernandez</span>
+      </a>
+      <button class="menu-btn" aria-expanded="false" aria-controls="navLinks" id="menuBtn">Menu</button>
+      <nav class="nav-links" id="navLinks">
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+        <a href="resume.pdf" target="_blank" rel="noopener">Résumé</a>
+      </nav>
+    </div>
   </header>
 
-  <!-- Hero / Intro Section -->
-  <section id="home" class="hero">
-    <h2>Game Developer • Systems • VFX</h2>
-    <p>Hello! I'm <span class="bold">Luis Fernandez</span>, a game developer who loves designing gameplay systems and polished player feedback.  
-      I focus on Unity and Roblox, building modular mechanics and visual polish through VFX and shaders.</p>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects">
-    <h2>Featured Projects</h2>
-    <hr />
-    <div class="projects">
-      <div class="project-card">
-        <h3>Elemental Escape (Unity)</h3>
-        <p>3D puzzle/FPS prototype with Fire/Frost spells, status effects, and boss encounters.</p>
-        <p><span class="bold">Tech:</span> Unity, C#, URP, VFX Graph</p>
+  <main id="home" class="hero" aria-labelledby="hero-title">
+    <div>
+      <div class="kicker">Game Developer • Systems • VFX</div>
+      <h1 id="hero-title">Designing and building interactive worlds.</h1>
+      <p>I’m Luis Fernandez, a game developer focused on gameplay systems, combat, and player-feedback polish. I work primarily in <strong>Unity</strong> and <strong>Roblox</strong> (Lua), and I love shipping clean, modular code with clear UX.</p>
+      <div class="cta">
+        <a class="btn primary" href="#projects">View Projects</a>
+        <a class="btn" href="#contact">Get in Touch</a>
       </div>
+    </div>
+    <div class="hero-art" role="img" aria-label="Abstract image of a developer workspace with a controller"></div>
+  </main>
 
-      <div class="project-card">
-        <h3>Color Match (Roblox)</h3>
-        <p>Multiplayer color-matching mini-game with accuracy scoring, timers, and data saving.</p>
-        <p><span class="bold">Tech:</span> Roblox Lua, DataStore, UI Programming</p>
-      </div>
+  <section id="projects" aria-labelledby="projects-title">
+    <h2 id="projects-title">Featured Projects</h2>
+    <p class="muted">A few recent builds and prototypes. More on <a href="https://github.com/Froxty" target="_blank" rel="noopener">GitHub</a>.</p>
+    <div class="grid" role="list">
+      <article class="card" role="listitem">
+        <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1527248816306-57c5a181a7fb?q=80&w=1600&auto=format&fit=crop');"></div>
+        <div class="body">
+          <h3>Elemental Escape (Unity)</h3>
+          <p>3D puzzle/FPS prototype with Fire/Frost spells, status effects, and a boss encounter. Built modular <em>buff/debuff</em> system with stacking DoTs/HoTs.</p>
+          <a class="btn" href="#" aria-disabled="true">Demo coming soon</a>
+        </div>
+        <div class="tags">
+          <span class="pill">Unity</span>
+          <span class="pill">C#</span>
+          <span class="pill">URP</span>
+          <span class="pill">VFX Graph</span>
+        </div>
+      </article>
 
-      <div class="project-card">
-        <h3>Buff/Debuff System (Unity Package)</h3>
-        <p>Reusable framework with stacking effects, cleanses, slows, and DOT/HOT logic.</p>
-        <p><span class="bold">Tech:</span> Unity, C#, Modular Systems</p>
-      </div>
+      <article class="card" role="listitem">
+        <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1636487651191-86e3614bc7df?q=80&w=1600&auto=format&fit=crop');"></div>
+        <div class="body">
+          <h3>Color Match (Roblox)</h3>
+          <p>Multiplayer color-matching mini-game: server-generated target color, accuracy scoring, timer/round system, and persistent player stats.</p>
+          <a class="btn" href="#" aria-disabled="true">Repo private</a>
+        </div>
+        <div class="tags">
+          <span class="pill">Roblox</span>
+          <span class="pill">Lua</span>
+          <span class="pill">DataStore</span>
+        </div>
+      </article>
+
+      <article class="card" role="listitem">
+        <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1605901309584-818e25960a8b?q=80&w=1600&auto=format&fit=crop');"></div>
+        <div class="body">
+          <h3>Buff/Debuff System (Unity Package)</h3>
+          <p>Reusable status framework: stacks, durations, cleanses, slows, DoTs/HoTs, homing projectiles hooks. Inspector-friendly and extensible.</p>
+          <a class="btn" href="#" aria-disabled="true">Docs soon</a>
+        </div>
+        <div class="tags">
+          <span class="pill">Unity</span>
+          <span class="pill">C#</span>
+          <span class="pill">Systems</span>
+        </div>
+      </article>
     </div>
   </section>
 
-  <!-- About Section -->
-  <section id="about">
-    <h2>About Me</h2>
-    <hr />
-    <p>I’m a systems-minded developer who enjoys designing mechanics that feel responsive and clear.  
-      I work in Unity, Roblox Studio, Blender, and Substance Painter.  
-      I value modularity, clarity, and readability in every system I build.</p>
+  <section id="about" class="about" aria-labelledby="about-title">
+    <div>
+      <h2 id="about-title">About Me</h2>
+      <p>I’m a systems-minded developer who loves building mechanics that feel responsive and readable. I iterate quickly, keep code modular, and value strong player feedback through VFX, sound, and smart UI.</p>
+      <p>Tools I enjoy: Unity (URP/HDRP, Shader Graph, VFX Graph), C#, Roblox Studio (Lua), Blender, Substance 3D Painter, and Git. I’ve also done client-server work and multiplayer experiments.</p>
+    </div>
+    <aside class="panel" aria-labelledby="highlights-title">
+      <h3 id="highlights-title">Highlights</h3>
+      <ul class="list">
+        <li>⚙️ Built modular <strong>status effect</strong> framework (stacking, cleanse, slows).</li>
+        <li>🧪 Designed <strong>combat prototypes</strong> with homing projectiles & barrage patterns.</li>
+        <li>🎮 Led <strong>Roblox multiplayer</strong> mini-games with persistent player stats.</li>
+      </ul>
+    </aside>
   </section>
 
-  <!-- Skills Section -->
-  <section id="skills">
-    <h2>Skills</h2>
-    <hr />
-    <ul class="skills-list">
-      <li>Unity (URP/HDRP)</li>
-      <li>C# Programming</li>
-      <li>Roblox / Lua</li>
-      <li>Shader Graph / VFX Graph</li>
-      <li>Gameplay Systems Design</li>
-      <li>Blender & Substance Painter</li>
-      <li>Git / GitHub</li>
-    </ul>
+  <section id="skills" aria-labelledby="skills-title">
+    <h2 id="skills-title">Skills</h2>
+    <div>
+      <span class="pill">Unity</span>
+      <span class="pill">C#</span>
+      <span class="pill">Roblox / Lua</span>
+      <span class="pill">Gameplay Systems</span>
+      <span class="pill">VFX / Shader Graph</span>
+      <span class="pill">Prototyping</span>
+      <span class="pill">Git / GitHub</span>
+      <span class="pill">Blender</span>
+      <span class="pill">Substance Painter</span>
+    </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <hr />
-    <p>📧 <a href="mailto:luis@example.com">luis@example.com</a></p>
-    <p>💼 <a href="https://www.linkedin.com/in/luis-fernandez-94b55795/" target="_blank">LinkedIn</a></p>
-    <p>🧑‍💻 <a href="https://github.com/Froxty" target="_blank">GitHub</a></p>
+  <section id="contact" class="contact" aria-labelledby="contact-title">
+    <div class="panel">
+      <h2 id="contact-title">Contact</h2>
+      <p class="muted">Open to internships, junior roles, and collaboration on indie prototypes.</p>
+      <ul class="list">
+        <li>📧 <a href="mailto:luis@example.com">luis@example.com</a></li>
+        <li>💼 <a href="https://www.linkedin.com/in/luis-fernandez-94b55795/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li>🧑‍💻 <a href="https://github.com/Froxty" target="_blank" rel="noopener">GitHub</a></li>
+        <li>🎮 <a href="#" aria-disabled="true">Itch.io (soon)</a></li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3>Quick Intro</h3>
+      <p>Hi! I’m Luis — I blend engineering and design to ship small but polished game systems. If you like what you see, feel free to reach out. I’d love to chat about opportunities or feedback on my work.</p>
+    </div>
   </section>
 
   <footer>
-    <p>© <span id="year"></span> Luis Fernandez. Built with HTML & CSS.</p>
+    <div class="hr" role="presentation"></div>
+    <small>© <span id="y">2025</span> Luis Fernandez. Built with vanilla HTML/CSS. </small>
   </footer>
 
   <script>
-    // Dynamic year in footer
-    document.getElementById('year').textContent = new Date().getFullYear();
+    const menuBtn = document.getElementById('menuBtn');
+    const nav = document.getElementById('topNav');
+    const links = document.getElementById('navLinks');
+    menuBtn?.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(open));
+    });
+    links?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      nav.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }));
+    document.getElementById('y').textContent = new Date().getFullYear();
   </script>
-
 </body>
 </html>
