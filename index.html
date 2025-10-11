@@ -6,7 +6,6 @@
   <title>Luis Fernandez — Game Developer</title>
   <meta name="description" content="Portfolio of Luis Fernandez — Game developer focused on Unity, Roblox, gameplay systems, and VFX.">
   <meta name="color-scheme" content="dark light" />
-  <!-- point to the external CSS file -->
   <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
@@ -31,7 +30,8 @@
     <div>
       <div class="kicker">Game Developer • Systems • VFX</div>
       <h1 id="hero-title">Designing and building interactive worlds.</h1>
-      <p>I’m Luis Fernandez, a game developer focused on gameplay systems, combat, and player-feedback polish. I work primarily in <strong>Unity</strong> and <strong>Roblox</strong> (Lua), and I love shipping clean, modular code with clear UX.</p>
+      <p>I’m Luis Fernandez, a game developer focused on gameplay systems, combat, and player-feedback polish. I work primarily in <strong>Unity</strong> and <strong>Roblox</strong> (Lua), and I love shipping clean, modular code with clear UX.
+      </p>
       <div class="cta">
         <a class="btn primary" href="#projects">View Projects</a>
         <a class="btn" href="#contact">Get in Touch</a>
@@ -44,6 +44,7 @@
     <h2 id="projects-title">Featured Projects</h2>
     <p class="muted">A few recent builds and prototypes. More on <a href="https://github.com/Froxty" target="_blank" rel="noopener">GitHub</a>.</p>
     <div class="grid" role="list">
+      <!-- PROJECT 1 -->
       <article class="card" role="listitem">
         <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1527248816306-57c5a181a7fb?q=80&w=1600&auto=format&fit=crop');"></div>
         <div class="body">
@@ -58,7 +59,7 @@
           <span class="pill">VFX Graph</span>
         </div>
       </article>
-
+      <!-- PROJECT 2 -->
       <article class="card" role="listitem">
         <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1636487651191-86e3614bc7df?q=80&w=1600&auto=format&fit=crop');"></div>
         <div class="body">
@@ -72,7 +73,7 @@
           <span class="pill">DataStore</span>
         </div>
       </article>
-
+      <!-- PROJECT 3 -->
       <article class="card" role="listitem">
         <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1605901309584-818e25960a8b?q=80&w=1600&auto=format&fit=crop');"></div>
         <div class="body">
@@ -143,6 +144,7 @@
   </footer>
 
   <script>
+    // Mobile menu toggle
     const menuBtn = document.getElementById('menuBtn');
     const nav = document.getElementById('topNav');
     const links = document.getElementById('navLinks');
@@ -150,10 +152,14 @@
       const open = nav.classList.toggle('open');
       menuBtn.setAttribute('aria-expanded', String(open));
     });
+
+    // Close menu after selecting a link (mobile)
     links?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
       nav.classList.remove('open');
       menuBtn.setAttribute('aria-expanded', 'false');
     }));
+
+    // Year stamp
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
 </body>
