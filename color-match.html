@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Luis Fernandez — Game Developer Portfolio -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Color Match (Roblox) — Luis Fernandez</title>
+  <meta name="description" content="Roblox Color Match — Multiplayer color-matching mini-game by Luis Fernandez.">
+  <meta name="color-scheme" content="dark light" />
+  <link rel="stylesheet" href="CSS/style.css">
+</head>
+
+<body>
+  <!-- Header / Navigation (same as index) -->
+  <header>
+    <div class="nav" id="topNav">
+      <a class="brand" href="index.html#home" aria-label="Home">
+        <span class="brand-badge" aria-hidden="true"></span>
+        <span>Luis Fernandez</span>
+      </a>
+
+      <button class="menu-btn" aria-expanded="false" aria-controls="navLinks" id="menuBtn">Menu</button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="resume.pdf" target="_blank" rel="noopener">Resume</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Project Hero -->
+  <main class="hero" aria-labelledby="project-title" id="top">
+    <div>
+      <div class="kicker">Roblox Mini-Game • Systems • UI</div>
+      <h1 id="project-title">Color Match</h1>
+      <p>
+        Color Match is a competitive color-matching mini-game built in Roblox. Players are given a target
+        RGB color and adjust <strong>Red, Green, and Blue sliders (0–255)</strong> to match it as closely
+        as possible before the timer runs out.
+      </p>
+      <div class="cta">
+        <a class="btn" href="index.html#projects">← Back to Projects</a>
+        <!-- You can hook this up later -->
+        <a class="btn primary" href="#" aria-disabled="true">Play link coming soon</a>
+      </div>
+      <div style="margin-top:1rem;">
+        <span class="pill">Roblox</span>
+        <span class="pill">Lua</span>
+        <span class="pill">DataStore</span>
+        <span class="pill">UI Systems</span>
+        <span class="pill">Game Stats</span>
+      </div>
+    </div>
+    <div class="hero-art" role="img"
+         aria-label="Screenshot of the Color Match Roblox game UI with RGB sliders and color preview"
+         style="background-image: url('images/color-match-main.jpg');">
+    </div>
+  </main>
+
+  <!-- Overview -->
+  <section aria-labelledby="overview-title">
+    <h2 id="overview-title">Project Overview</h2>
+    <p class="muted">
+      Color Match was developed in Roblox Studio as a systems-focused mini-game. The goal was to build
+      a complete loop that combines <strong>UI interaction</strong>, <strong>server-side scoring</strong>,
+      and <strong>persistent player stats</strong>, while collaborating with a dedicated UI designer.
+    </p>
+
+    <div class="grid">
+      <article class="card">
+        <div class="body">
+          <h3>Core Gameplay</h3>
+          <p>
+            Each round, the server generates a random RGB color. Players see that target color and use
+            three sliders (R, G, B) to match it, with values ranging from 0–255. A countdown timer
+            limits how long they have to adjust their guess.
+          </p>
+          <p>
+            When the round ends or a player hits <strong>Submit</strong>, the server calculates how close
+            their guess is and displays an accuracy percentage on a summary screen.
+          </p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="body">
+          <h3>Data & Progression</h3>
+          <p>
+            The game uses Roblox <strong>DataStore</strong> to persist stats between sessions. For solo play,
+            it currently tracks:
+          </p>
+          <ul class="list">
+            <li>Total games played</li>
+            <li>Average accuracy percentage</li>
+            <li>Average time taken to submit</li>
+          </ul>
+          <p>
+            These stats are surfaced in a dedicated <strong>Stats menu</strong> so players can see their improvement over time.
+          </p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="body">
+          <h3>Achievements</h3>
+          <p>
+            Color Match includes an <strong>achievement/badge system</strong>. For example, achieving
+            <strong>100% accuracy</strong> awards a special badge. The achievement logic is modular,
+            making it easy to add more challenges later.
+          </p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- My Role & Collaboration -->
+  <section aria-labelledby="role-title" class="about">
+    <div>
+      <h2 id="role-title">My Role</h2>
+      <p>
+        I handled all <strong>scripting and systems design</strong> for the project, focusing on making the
+        color-matching loop feel responsive and readable.
+      </p>
+      <ul class="list">
+        <li>Implemented RGB slider logic (0–255) with synced text fields and color preview.</li>
+        <li>Built the round system with timers, submit logic, and server-side accuracy checks.</li>
+        <li>Created the game summary screen showing server color, player color, and accuracy.</li>
+        <li>Integrated Roblox DataStore to save and load player stats.</li>
+        <li>Added an achievement manager that awards badges like the 100% accuracy reward.</li>
+      </ul>
+    </div>
+    <aside class="panel" aria-labelledby="team-title">
+      <h3 id="team-title">Team & Collaboration</h3>
+      <p>
+        The project was built in collaboration with <strong>Paige Martin</strong>, who focused on UI layout
+        and visual design.
+      </p>
+      <ul class="list">
+        <li>UI/UX design and layout by Paige (sliders, stats menu, summary screens).</li>
+        <li>Implementation and wiring of the UI to backend systems by me (Lua).</li>
+        <li>Iterated on readability, feedback, and flow based on playtesting.</li>
+      </ul>
+    </aside>
+  </section>
+
+  <!-- Screenshots / UI Gallery -->
+  <section aria-labelledby="screenshots-title">
+    <h2 id="screenshots-title">Screenshots</h2>
+    <p class="muted">A few shots of the UI and round flow.</p>
+
+    <div class="grid">
+      <article class="card">
+        <div class="thumb" style="background-image:url('images/color-match-ui-main.jpg');"></div>
+        <div class="body">
+          <h3>Main Gameplay UI</h3>
+          <p>RGB sliders, live color preview, target color, and timer visible during a round.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:url('images/color-match-summary.jpg');"></div>
+        <div class="body">
+          <h3>Round Summary</h3>
+          <p>Shows server color vs. player color, accuracy percentage, and play-again options.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb" style="background-image:url('images/color-match-stats.jpg');"></div>
+        <div class="body">
+          <h3>Stats Menu</h3>
+          <p>Displays total games played, average accuracy, and average submission time.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Tech Details -->
+  <section aria-labelledby="tech-title">
+    <h2 id="tech-title">Tech & Systems</h2>
+    <div class="grid">
+      <article class="card">
+        <div class="body">
+          <h3>Roblox & Lua</h3>
+          <ul class="list">
+            <li>Server-side GameManager controlling rounds, timers, and color generation.</li>
+            <li>Modular scripts for sliders, timers, and summary UI.</li>
+            <li>Client–server separation for gameplay logic and display.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="body">
+          <h3>Persistence & Achievements</h3>
+          <ul class="list">
+            <li>DataStore tables per player tracking games played and accuracy stats.</li>
+            <li>Achievement manager module for condition checks and badge awards.</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="hr" role="presentation"></div>
+    <small>© <span id="y">2025</span> Luis Fernandez. Built with vanilla HTML/CSS.</small>
+  </footer>
+
+  <!-- JS: menu toggle + dynamic year (same as index) -->
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const nav = document.getElementById('topNav');
+    const links = document.getElementById('navLinks');
+
+    menuBtn?.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(open));
+    });
+
+    links?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      nav.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }));
+
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
