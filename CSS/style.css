@@ -39,6 +39,11 @@ body {
     var(--bg);
 }
 
+/* Global utilities */
+.green-accent {
+  color: var(--brand);
+}
+
 /* Header / Nav */
 header {
   position: sticky;
