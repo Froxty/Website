@@ -55,63 +55,89 @@
     </div>
   </main>
 
-  <!-- Projects -->
-  <section id="projects" aria-labelledby="projects-title">
-    <h2 id="projects-title">Featured Projects</h2>
-    <p class="muted">A few recent builds and prototypes.</p>
+    <!-- Projects -->
+    <section id="projects" aria-labelledby="projects-title">
+      <h2 id="projects-title">Featured Projects</h2>
+      <p class="muted">Click and drag to browse more projects.</p>
 
-    <div class="grid" role="list">
-      <!-- Project 1 -->
-      <article class="card" role="listitem">
-        <div class="thumb" style="background-image:url('');"></div>
-        <div class="body">
-          <h3>Elemental Escape (Unity)</h3>
-          <p>3D puzzle/FPS prototype with Fire/Frost spells, status effects, and a boss encounter.</p>
-          <a class="btn" href="#" aria-disabled="true">Demo coming soon</a>
-        </div>
-        <div class="tags">
-          <span class="pill">Unity</span>
-          <span class="pill">C#</span>
-          <span class="pill">URP</span>
-          <span class="pill">VFX Graph</span>
-        </div>
-      </article>
+      <div class="projects-track draggable-scroller" role="list">
+        <!-- Project 1 – CapyBun Dungeon Adventure -->
+        <article class="card" role="listitem">
+          <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1600&auto=format&fit=crop');"></div>
+          <div class="body">
+            <h3>CapyBun Dungeon Adventure (Unity)</h3>
+            <p>
+              Asynchronous co-op puzzle level where players swap between Capybarda and Spellbun to solve
+              dungeon puzzles and reunite at the exit.
+            </p>
+            <!-- swap this link later if you have a specific build / repo -->
+            <a class="btn" href="https://github.com/Froxty" target="_blank" rel="noopener">View on GitHub</a>
+          </div>
+          <div class="tags">
+            <span class="pill">Unity</span>
+            <span class="pill">C#</span>
+            <span class="pill">Level Design</span>
+            <span class="pill">Group Project</span>
+          </div>
+        </article>
 
-      <!-- Project 2 – Color Match -->
-      <article class="card" role="listitem">
-        <div class="thumb" style="background-image:url('images/Color_Match_Icon.png');"></div>
-        <div class="body">
-          <h3>Color Match (Roblox)</h3>
-          <p>
-            Multiplayer color-matching mini-game: server-generated target color, accuracy scoring,
-            timer-based rounds, persistent stats, and achievements.
-          </p>
-          <a class="btn" href="color-match.html">View project</a>
-        </div>
-        <div class="tags">
-          <span class="pill">Roblox</span>
-          <span class="pill">Lua</span>
-          <span class="pill">DataStore</span>
-          <span class="pill">UI/UX</span>
-        </div>
-      </article>
+        <!-- Project 2 – Elemental Mastery -->
+        <article class="card" role="listitem">
+          <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1558981285-6f0c94958bb6?q=80&w=1600&auto=format&fit=crop');"></div>
+          <div class="body">
+            <h3>Elemental Mastery (Unity 2D)</h3>
+            <p>
+              2D platformer where players swap between Fire, Frost, and Life orbs for different buffs and
+              take on an elemental boss encounter.
+            </p>
+            <a class="btn" href="https://github.com/Froxty" target="_blank" rel="noopener">View on GitHub</a>
+          </div>
+          <div class="tags">
+            <span class="pill">Unity</span>
+            <span class="pill">2D</span>
+            <span class="pill">Combat</span>
+            <span class="pill">Boss Design</span>
+          </div>
+        </article>
 
-      <!-- Project 3 -->
-      <article class="card" role="listitem">
-        <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1605901309584-818e25960a8b?q=80&w=1600&auto=format&fit=crop');"></div>
-        <div class="body">
-          <h3>Buff/Debuff System (Unity Package)</h3>
-          <p>Reusable status framework: stacks, durations, cleanses, slows, DoTs/HoTs. Inspector-friendly and extensible.</p>
-          <a class="btn" href="#" aria-disabled="true">Docs soon</a>
-        </div>
-        <div class="tags">
-          <span class="pill">Unity</span>
-          <span class="pill">C#</span>
-          <span class="pill">Systems</span>
-        </div>
-      </article>
-    </div>
-  </section>
+        <!-- Project 3 – Color Match -->
+        <article class="card" role="listitem">
+          <div class="thumb" style="background-image:url('images/Color_Match_Icon.png');"></div>
+          <div class="body">
+            <h3>Color Match (Roblox)</h3>
+            <p>
+              Multiplayer color-matching mini-game with server-generated target colors, accuracy scoring,
+              timer-based rounds, persistent stats, and achievements.
+            </p>
+            <a class="btn" href="color-match.html">View project</a>
+          </div>
+          <div class="tags">
+            <span class="pill">Roblox</span>
+            <span class="pill">Lua</span>
+            <span class="pill">DataStore</span>
+            <span class="pill">UI/UX</span>
+          </div>
+        </article>
+
+        <!-- Project 4 – Buff/Debuff System -->
+        <article class="card" role="listitem">
+          <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1605901309584-818e25960a8b?q=80&w=1600&auto=format&fit=crop');"></div>
+          <div class="body">
+            <h3>Buff/Debuff System (Unity Package)</h3>
+            <p>
+              Reusable status framework with stacking, cleanses, slows, DoTs/HoTs, and inspector-friendly
+              configuration for quick reuse across projects.
+            </p>
+            <a class="btn" href="#" aria-disabled="true">Docs soon</a>
+          </div>
+          <div class="tags">
+            <span class="pill">Unity</span>
+            <span class="pill">C#</span>
+            <span class="pill">Systems</span>
+          </div>
+        </article>
+      </div>
+    </section>
 
   <!-- About -->
   <section id="about" class="about" aria-labelledby="about-title">

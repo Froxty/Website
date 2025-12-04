@@ -272,6 +272,40 @@ section h2 {
   gap: .4rem;
 }
 
+/* Projects slider row */
+.projects-track {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding-bottom: .5rem;
+  scroll-snap-type: x mandatory;
+}
+
+.projects-track .card {
+  flex: 0 0 auto;
+  width: clamp(260px, 32vw, 340px);
+  scroll-snap-align: start;
+}
+
+/* nicer scrollbar (optional) */
+.projects-track::-webkit-scrollbar {
+  height: 6px;
+}
+.projects-track::-webkit-scrollbar-track {
+  background: transparent;
+}
+.projects-track::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, .15);
+  border-radius: 999px;
+}
+
+.draggable-scroller {
+  cursor: grab;
+}
+.draggable-scroller.dragging {
+  cursor: grabbing;
+}
+
 /* About */
 .about {
   display: grid;
