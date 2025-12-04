@@ -40,9 +40,6 @@ body {
 }
 
 /* Global utilities */
-.green-accent {
-  color: var(--brand);
-}
 
 /* Header / Nav */
 header {
