@@ -160,34 +160,26 @@
         <strong>Tools I use:</strong> Unity (URP/HDRP, Shader Graph, VFX Graph), C#, Roblox Studio (Lua), Blender, Substance 3D Painter, and Git.
       </p>
     </div>
-
-    <aside class="panel" aria-labelledby="highlights-title">
-      <h3 id="highlights-title">What I Do</h3>
-      <ul class="list">
-        <li>Gameplay programming and systems design in Unity and Roblox.</li>
-        <li>Client–server logic, data persistence, and player stats.</li>
-        <li>Full 3D pipeline: modeling, texturing, rigging, animation, and VFX.</li>
-        <li>UX-focused UI, readability, and player feedback loops.</li>
-      </ul>
-    </aside>
   </section>
 
-  <!-- Skills (now filters) -->
+  <!-- Skills (back to simple list) -->
   <section id="skills" aria-labelledby="skills-title">
     <h2 id="skills-title">Skills</h2>
-    <div id="skillsFilter" class="skills-grid">
-      <button type="button" class="pill pill-filter active" data-skill="all">All</button>
-      <button type="button" class="pill pill-filter" data-skill="Unity">Unity</button>
-      <button type="button" class="pill pill-filter" data-skill="Roblox">Roblox</button>
-      <button type="button" class="pill pill-filter" data-skill="C#">C#</button>
-      <button type="button" class="pill pill-filter" data-skill="C++">C++</button>
-      <button type="button" class="pill pill-filter" data-skill="Python">Python</button>
-      <button type="button" class="pill pill-filter" data-skill="Gameplay Systems">Gameplay Systems</button>
-      <button type="button" class="pill pill-filter" data-skill="Systems">Systems</button>
-      <button type="button" class="pill pill-filter" data-skill="UI/UX">UI/UX</button>
-      <button type="button" class="pill pill-filter" data-skill="VFX / Shader Graph">VFX / Shader Graph</button>
-      <button type="button" class="pill pill-filter" data-skill="DataStore">DataStore</button>
-      <button type="button" class="pill pill-filter" data-skill="Multiplayer">Multiplayer</button>
+    <div>
+      <span class="pill">Unity</span>
+      <span class="pill">Roblox</span>
+      <span class="pill">Unreal Engine</span>
+      <span class="pill">C#</span>
+      <span class="pill">C++</span>
+      <span class="pill">Python</span>
+      <span class="pill">HTML/CSS/JS</span>
+      <span class="pill">Gameplay Systems</span>
+      <span class="pill">VFX / Shader Graph</span>
+      <span class="pill">Prototyping</span>
+      <span class="pill">Git / GitHub</span>
+      <span class="pill">Blender</span>
+      <span class="pill">Substance Painter</span>
+      <span class="pill">Photoshop</span>
     </div>
   </section>
 
@@ -219,7 +211,7 @@
     <small>© <span id="y">2025</span> Luis Fernandez. Built with vanilla HTML/CSS.</small>
   </footer>
 
-  <!-- JS: menu toggle + dynamic year + drag scroll + skill filters -->
+  <!-- JS: menu toggle + dynamic year + drag scroll + tag-based project filters -->
   <script>
     const menuBtn = document.getElementById('menuBtn');
     const nav = document.getElementById('topNav');
@@ -274,35 +266,47 @@
       });
     });
 
-    // Skill pill filters for Featured Projects
-    const skillFilters = document.querySelectorAll('.pill-filter');
+    // === Tag-based project filters (use the project pills themselves) ===
     const projectCards = document.querySelectorAll('#projects .card');
+    const projectTagPills = document.querySelectorAll('#projects .tags .pill');
+    let activeSkill = null;
 
     function applySkillFilter(skill) {
+      // Normalize: null/empty means "show all"
+      const normalized = skill ? skill.toLowerCase() : null;
+      activeSkill = normalized;
+
       projectCards.forEach(card => {
         const skillsAttr = card.dataset.skills || '';
-        const skills = skillsAttr.toLowerCase().split(',').map(s => s.trim());
+        const skills = skillsAttr.toLowerCase().split(',').map(s => s.trim()).filter(Boolean);
 
-        const matches = skill === 'all'
-          ? true
-          : skills.includes(skill.toLowerCase());
-
+        const matches = !normalized ? true : skills.includes(normalized);
         card.hidden = !matches;
-        card.classList.toggle('is-hidden', !matches);
+      });
+
+      // Update visual state of pills
+      projectTagPills.forEach(pill => {
+        const pillSkill = pill.textContent.trim().toLowerCase();
+        pill.classList.toggle('active-filter', !!normalized && pillSkill === normalized);
       });
     }
 
-    skillFilters.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const skill = btn.dataset.skill;
+    projectTagPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        const skillText = pill.textContent.trim();
+        const skillLower = skillText.toLowerCase();
 
-        // active state on pills
-        skillFilters.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        applySkillFilter(skill);
+        // If clicking the same active pill, clear the filter (show all)
+        if (activeSkill && activeSkill === skillLower) {
+          applySkillFilter(null);
+        } else {
+          applySkillFilter(skillText);
+        }
       });
     });
+
+    // Start with no filter (show all)
+    applySkillFilter(null);
   </script>
 </body>
 </html>
