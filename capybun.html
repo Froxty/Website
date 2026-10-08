@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CapyBun Dungeon Adventure — Luis Fernandez</title>
+  <meta name="description" content="A short Unity puzzle level starring Capybarda and Spellbun. Gameplay programming, character switching, inventory, camera interactions, and UI implementation by Luis Fernandez.">
+  <meta name="color-scheme" content="dark light">
+  <link rel="stylesheet" href="CSS/style.css">
+  <style>
+    /* Page-specific styles; keep your existing CSS/style.css. */
+    .capy-page { --capy-radius: 16px; }
+    .capy-page .hero { grid-template-columns: 1fr 1.15fr; padding-top: 3rem; }
+    .capy-page .hero p { max-width: 52ch; }
+    .capy-page .hero .role-line { color: var(--text); }
+    .capy-page .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: .65rem; margin: 1.2rem 0; }
+    .capy-page .fact { padding: .8rem; border: 1px solid var(--border); border-radius: 12px; background: var(--card); }
+    .capy-page .fact strong, .capy-page .fact span { display: block; }
+    .capy-page .fact strong { font-size: 1.12rem; line-height: 1.3; }
+    .capy-page .fact span { font-size: .85rem; color: var(--muted); }
+    .capy-page .media { margin: 0; aspect-ratio: 16 / 9; background: #0e0f16; overflow: hidden; position: relative; }
+    .capy-page .media video, .capy-page .media img { display: block; width: 100%; height: 100%; object-fit: contain; }
+    .capy-page .hero-visual { margin: 0; border: 1px solid var(--border); border-radius: var(--capy-radius); overflow: hidden; box-shadow: var(--shadow); background: var(--card); }
+    .capy-page .hero-visual figcaption { padding: .8rem 1rem; color: var(--muted); font-size: .9rem; }
+    .capy-page .media-missing { display: flex; align-items: center; justify-content: center; text-align: center; padding: 1.25rem; height: 100%; color: #e8e8ea; background: linear-gradient(135deg, #202b45, #39264b); }
+    .capy-page .media-missing span { max-width: 32ch; }
+    .capy-page .section-intro { max-width: 68ch; color: var(--muted); margin: -.3rem 0 1.3rem; }
+    .capy-page .points { padding-left: 1.2rem; margin: .6rem 0 0; }
+    .capy-page .points li { margin: .55rem 0; }
+    .capy-page .card .body { padding: 1.1rem; }
+    .capy-page .card p:last-child { margin-bottom: 0; }
+    .capy-page .credit p { margin: .5rem 0; }
+    .capy-page .tools-section { padding-top: 1rem; padding-bottom: 2rem; }
+    .capy-page .tools-section h2 { font-size: 1.05rem; margin-bottom: .6rem; }
+    .capy-page .tools-row { display: flex; flex-wrap: wrap; gap: .4rem; list-style: none; padding: 0; margin: 0; }
+    .capy-page .tools-row .pill { margin: 0; }
+    .capy-page details { border-top: 1px solid var(--border); padding: .9rem 1.1rem; }
+    .capy-page summary { cursor: pointer; color: var(--link); }
+    .capy-page details p { margin: .7rem 0 0; color: var(--muted); }
+    .capy-page a[aria-disabled="true"] { opacity: .55; cursor: default; box-shadow: none; }
+    .capy-page a[aria-disabled="true"]:hover { transform: none; }
+    @media (max-width: 980px) { .capy-page .hero { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) { .capy-page .facts { grid-template-columns: 1fr; } }
+
+    .capy-page .capture { display: flex; align-items: center; justify-content: center; height: 100%; padding: 1.5rem; text-align: center; background: linear-gradient(135deg, #202b45, #39264b); color: #e8e8ea; }
+    .capy-page .capture span { max-width: 30ch; }
+    .capy-page details { padding: .85rem 1.1rem; border-top: 1px solid var(--border); }
+    .capy-page summary { cursor: pointer; color: var(--link); }
+    .capy-page details p { color: var(--muted); margin: .7rem 0 0; }
+</style>
+</head>
+<body>
+<header>
+    <div class="nav" id="topNav">
+      <a class="brand" href="index.html#home" aria-label="Home">
+        <span class="brand-badge" aria-hidden="true"></span>
+        <span>Luis Fernandez</span>
+      </a>
+
+      <button class="menu-btn" aria-expanded="false" aria-controls="navLinks" id="menuBtn">Menu</button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="Resume/Fernandez_Luis_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+      </nav>
+    </div>
+  </header>
+<main class="capy-page">
+  <section class="hero" aria-labelledby="project-title" id="top">
+    <div>
+      <div class="kicker">Unity • C# • Puzzle Adventure</div>
+      <h1 id="project-title">CapyBun Dungeon Adventure</h1>
+      <p>Swap between Capybarda and Spellbun to solve puzzles, overcome obstacles, reunite, and escape the dungeon together.</p>
+      <div class="facts" aria-label="Project at a glance">
+        <div class="fact"><strong>2 characters</strong><span>Switch control as you play</span></div>
+        <div class="fact"><strong>1 short level</strong><span>A playable slice of the game concept</span></div>
+        <div class="fact"><strong>My role</strong><span>Gameplay mechanics &amp; programming</span></div>
+      </div>
+      <p class="role-line">I programmed the character controls, puzzle interactions, inventory, camera behavior, and functional UI.</p>
+      <div class="cta">
+        <a class="btn primary" href="https://froxtyforge.itch.io/capybun-dungeon-adventure" target="_blank" rel="noopener">Play on Itch.io</a>
+        <a class="btn" href="https://github.com/Froxty/Capybun_Dungeon_Adventure" target="_blank" rel="noopener">View on GitHub</a>
+        <a class="btn" href="#contributions">See My Work</a>
+      </div>
+    </div>
+    <figure class="hero-visual">
+      <!-- Existing thumbnail path preserved from your portfolio. Replace with a gameplay image if desired. -->
+      <div class="media"><img src="images/CapyBun_Thumb.png" alt="CapyBun Dungeon Adventure project artwork" fetchpriority="high"></div>
+    </figure>
+  </section>
+
+  <section aria-labelledby="gameplay-title">
+    <h2 id="gameplay-title">Switch. Solve. Reunite.</h2>
+    <p class="section-intro">A focused game level built around exploring with both characters and bringing their progress together.</p>
+    <div class="grid">
+      <article class="card">
+          <!-- Add this clip's real path in MEDIA below. Accepts GIF, PNG/JPG, or MP4/WebM. -->
+          <div class="media" data-media="switching" data-label="Character Switching">
+            <div class="capture"><span>Character Switching<br>Gameplay capture coming soon</span></div>
+          </div>
+          <div class="body"><h3>Character Switching</h3><p>Switch characters while the camera and HUD update to show who you control.</p></div>
+          <details><summary>How I built it</summary><p>PartySwitchManager routes input to the active character, swaps character cameras, and sends a change event. ProfileHudSwapper uses DOTween to animate the active portrait and health display.</p></details>
+        </article>
+      <article class="card">
+          <!-- Add this clip's real path in MEDIA below. Accepts GIF, PNG/JPG, or MP4/WebM. -->
+          <div class="media" data-media="puzzles" data-label="Connected Puzzle Progress">
+            <div class="capture"><span>Connected Puzzle Progress<br>Gameplay capture coming soon</span></div>
+          </div>
+          <div class="body"><h3>Connected Puzzle Progress</h3><p>Collect heart pieces, combine them, and bring both characters together to activate the escape portal.</p></div>
+          <details><summary>How I built it</summary><p>A shared inventory stores pickups and notifies the UI when items change. HeartCombineOnContact checks for the required pieces. The portal checks for the combined heart and both characters in its trigger before activation.</p></details>
+        </article>
+      <article class="card">
+          <!-- Add this clip's real path in MEDIA below. Accepts GIF, PNG/JPG, or MP4/WebM. -->
+          <div class="media" data-media="interactions" data-label="Camera-Guided Interactions">
+            <div class="capture"><span>Camera-Guided Interactions<br>Gameplay capture coming soon</span></div>
+          </div>
+          <div class="body"><h3>Camera-Guided Interactions</h3><p>Activate gates and reveal items, with camera focus and sound helping show what changed.</p></div>
+          <details><summary>How I built it</summary><p>Gate and item-spawn sequences coordinate timed actions with optional Cinemachine camera focus. During focus, movement input is paused; afterward, control returns to the active character.</p></details>
+        </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="contributions" class="about">
+    <div>
+      <h2 id="contributions">My Contribution</h2>
+      <p>I built the mechanics and code that turn the level’s puzzles and artwork into a playable experience.</p>
+      <ul class="points">
+        <li><strong>Character controls:</strong> movement, jumping, interaction, and switching between the two characters.</li>
+        <li><strong>Puzzle systems:</strong> gates, item spawning, heart-piece collection and combination, and portal activation.</li>
+        <li><strong>UI implementation:</strong> shared inventory, drag-and-drop slots, interaction prompts, and animated character HUDs.</li>
+        <li><strong>Hazards &amp; recovery:</strong> timed spike traps, damage, health regeneration, and respawning both characters.</li>
+      </ul>
+    </div>
+    <aside class="panel credit" aria-labelledby="scope-title">
+      <h3 id="scope-title">Scope &amp; Teamwork</h3>
+      <p>A short playable level demonstrating the core game concept.</p>
+      <p><strong>My responsibility:</strong> gameplay programming and Unity implementation, including integrating character animations and UI assets.</p>
+      <p class="muted">Developed as a team project, with my work focused on making the mechanics and interfaces function together.</p>
+    </aside>
+  </section>
+
+  <section class="tools-section" aria-labelledby="tools-title">
+    <h2 id="tools-title">Tools Used</h2>
+    <ul class="tools-row" aria-label="Development tools">
+      <li class="pill">Unity</li><li class="pill">C#</li><li class="pill">Input System</li>
+      <li class="pill">Cinemachine</li><li class="pill">DOTween</li><li class="pill">TextMeshPro</li>
+    </ul>
+  </section>
+</main>
+<footer>
+  <a class="btn" href="index.html#projects">← Back to Projects</a>
+  <div class="hr" role="presentation"></div>
+  <small>© <span id="y">2026</span> Luis Fernandez. Built with vanilla HTML/CSS.</small>
+</footer>
+<script>
+  // EDIT: Insert your exact GIF, screenshot, or video paths. Empty values leave the capture placeholders.
+  const MEDIA = {
+    switching: "",
+    puzzles: "",
+    interactions: ""
+  };
+  document.querySelectorAll('[data-media]').forEach(slot => {
+    const path = MEDIA[slot.dataset.media];
+    if (!path) return;
+    const isVideo = /\.(mp4|webm)(?:[?#].*)?$/i.test(path);
+    const media = document.createElement(isVideo ? 'video' : 'img');
+    if (isVideo) {
+      media.controls = true;
+      media.playsInline = true;
+      media.preload = 'none';
+      media.setAttribute('aria-label', slot.dataset.label);
+    } else {
+      media.alt = slot.dataset.label;
+      media.loading = 'lazy';
+    }
+    const placeholder = slot.firstElementChild;
+    media.addEventListener('error', () => slot.replaceChildren(placeholder), { once: true });
+    media.src = path;
+    slot.replaceChildren(media);
+  });
+  const menuBtn = document.getElementById('menuBtn');
+  const nav = document.getElementById('topNav');
+  const links = document.getElementById('navLinks');
+  menuBtn?.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', String(open));
+  });
+  links?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    nav.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+  }));
+  document.getElementById('y').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

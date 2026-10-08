@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Toy Tournament — Luis Fernandez</title>
+  <meta name="description" content="Toy Tournament: a 2–4 player Unity party game. Gameplay programming and shared local multiplayer architecture by Luis Fernandez.">
+  <meta name="color-scheme" content="dark light">
+  <link rel="stylesheet" href="CSS/style.css">
+  <style>
+    /* Page-specific styles; keep your existing CSS/style.css. */
+    .toy-page { --toy-radius: 16px; }
+    .toy-page .hero { grid-template-columns: 1fr 1.15fr; padding-top: 3rem; }
+    .toy-page .hero p { max-width: 52ch; }
+    .toy-page .hero .role-line { color: var(--text); }
+    .toy-page .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: .65rem; margin: 1.2rem 0; }
+    .toy-page .fact { padding: .8rem; border: 1px solid var(--border); border-radius: 12px; background: var(--card); }
+    .toy-page .fact strong, .toy-page .fact span { display: block; }
+    .toy-page .fact strong { font-size: 1.12rem; line-height: 1.3; }
+    .toy-page .fact span { font-size: .85rem; color: var(--muted); }
+    .toy-page .media { margin: 0; aspect-ratio: 16 / 9; background: #0e0f16; overflow: hidden; position: relative; }
+    .toy-page .media video, .toy-page .media img { display: block; width: 100%; height: 100%; object-fit: contain; }
+    .toy-page .hero-visual { margin: 0; border: 1px solid var(--border); border-radius: var(--toy-radius); overflow: hidden; box-shadow: var(--shadow); background: var(--card); }
+    .toy-page .hero-visual figcaption { padding: .8rem 1rem; color: var(--muted); font-size: .9rem; }
+    .toy-page .media-missing { display: flex; align-items: center; justify-content: center; text-align: center; padding: 1.25rem; height: 100%; color: #e8e8ea; background: linear-gradient(135deg, #202b45, #39264b); }
+    .toy-page .media-missing span { max-width: 32ch; }
+    .toy-page .section-intro { max-width: 68ch; color: var(--muted); margin: -.3rem 0 1.3rem; }
+    .toy-page .points { padding-left: 1.2rem; margin: .6rem 0 0; }
+    .toy-page .points li { margin: .55rem 0; }
+    .toy-page .card .body { padding: 1.1rem; }
+    .toy-page .card p:last-child { margin-bottom: 0; }
+    .toy-page .credit p { margin: .5rem 0; }
+    .toy-page .tools-section { padding-top: 1rem; padding-bottom: 2rem; }
+    .toy-page .tools-section h2 { font-size: 1.05rem; margin-bottom: .6rem; }
+    .toy-page .tools-row { display: flex; flex-wrap: wrap; gap: .4rem; list-style: none; padding: 0; margin: 0; }
+    .toy-page .tools-row .pill { margin: 0; }
+    .toy-page details { border-top: 1px solid var(--border); padding: .9rem 1.1rem; }
+    .toy-page summary { cursor: pointer; color: var(--link); }
+    .toy-page details p { margin: .7rem 0 0; color: var(--muted); }
+    .toy-page a[aria-disabled="true"] { opacity: .55; cursor: default; box-shadow: none; }
+    .toy-page a[aria-disabled="true"]:hover { transform: none; }
+    @media (max-width: 980px) { .toy-page .hero { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) { .toy-page .facts { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<header>
+  <div class="nav" id="topNav">
+    <a class="brand" href="index.html#home" aria-label="Home">
+      <span class="brand-badge" aria-hidden="true"></span>
+      <span>Luis Fernandez</span>
+    </a>
+
+    <button class="menu-btn" aria-expanded="false" aria-controls="navLinks" id="menuBtn">Menu</button>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#skills">Skills</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="resume.pdf" target="_blank" rel="noopener">Resume</a>
+    </nav>
+  </div>
+</header>
+<main class="toy-page">
+  <section class="hero" aria-labelledby="project-title" id="top">
+    <div><div class="kicker">Unity • C# • Local Multiplayer</div>
+      <h1 id="project-title">Toy Tournament</h1><p>A toy-themed local multiplayer party game where 2-4 players compete in cooking, boat combat, and painting minigames.</p>
+      <div class="facts" aria-label="Project at a glance">
+        <div class="fact"><strong>2-4</strong><span>Local players</span></div>
+        <div class="fact"><strong>3</strong><span>Playable minigames</span></div>
+        <div class="fact"><strong>My role</strong><span>Gameplay programming &amp; architecture</span></div>
+      </div><p class="role-line">In a two-person team, I developed the gameplay systems and the shared framework connecting player input, UI, cameras, and game flow.</p>
+      <div class="cta">
+        <!-- URLs are configured in the script at the bottom. Buttons activate once you add them. -->
+        <a class="btn primary" data-project-link="itch" href="#" target="_blank" rel="noopener" aria-disabled="true" title="Add your Itch.io URL in the script">Play on Itch.io</a>
+      <a class="btn" data-project-link="behance" href="#" target="_blank" rel="noopener" aria-disabled="true" title="Add your Behance URL in the script">Game Behance</a>
+        <a class="btn" href="#contributions">Explore the Systems</a>
+      </div>
+    </div>
+    <figure class="hero-visual">
+      <!-- EDIT: Include your cover's actual extension, and change the trailer filename if needed. -->
+      <div class="media">
+        <video controls playsinline preload="none" poster="images/Trailer_CoverWide.png"
+               src="videos/Game_Trailer.mp4" aria-label="Toy Tournament game trailer"
+               data-placeholder="Add the Toy Tournament trailer here">
+          Your browser does not support video. <a href="videos/Game_Trailer.mp4">Download the trailer</a>.
+        </video>
+      </div>
+    </figure>
+  </section>
+
+  <section aria-labelledby="overview-title"><h2 id="overview-title">Three Minigames. One Shared Framework.</h2><p class=section-intro>Each minigame has its own mechanics and camera needs, supported by the same player setup and game flow.</p><div class="grid"><article class="card"><div class="media"><img src="images/Cookingminigame.gif" alt="Cooking Chaos chopping gameplay" loading="lazy"></div><div class="body"><h3>Cooking Chaos</h3><p>Gather, wash, chop, and cook ingredients through a multiphase minigame.</p></div></article>
+    <article class="card">
+      <!-- EDIT: Change this GIF filename to match your actual file. -->
+      <div class="media"><img src="images/Boatminigame.gif" alt="Boat Brawl gameplay: boats maneuvering and firing cannons" loading="lazy" data-placeholder="Add Boat Brawl GIF here"></div>
+      <div class="body"><h3>Boat Brawl</h3><p>Maneuver your boat and fire cannons to outlast the other players.</p></div></article>
+    <article class="card">
+      <!-- EDIT: Change this GIF filename to match your actual file. -->
+      <div class="media"><img src="images/Paintingminigame.gif" alt="Painting Panic gameplay: players competing to cover the grid" loading="lazy" data-placeholder="Add Painting Panic GIF here"></div>
+      <div class="body"><h3>Painting Panic</h3><p>Cover as much of the grid as possible to compete for board control.</p></div></article></div></section>
+
+  <section aria-labelledby="contributions" class="about"><div><h2 id="contributions">My Role</h2><p>I built the gameplay and multiplayer systems, then integrated the art and UI into Unity.</p><ul class="points"><li><strong>Players &amp; lobby:</strong> joining, character/color selection, ready states, and countdown.</li><li><strong>Input &amp; UI:</strong> independent player controls and shared-menu handoff.</li><li><strong>Cameras:</strong> player-follow, top-down, and multi-phase rigs.</li><li><strong>Game flow:</strong> additive scenes, minigame sequencing, results, and return to lobby.</li></ul></div><aside class="panel credit" aria-labelledby="team-title"><h3 id="team-title">Two-person team</h3><p><strong>Luis Fernandez</strong><br>Programming, gameplay architecture, and Unity integration.</p><p><strong>Paige Martin</strong><br>Artwork, visual assets, and UI design.</p><p class="muted">We developed gameplay ideas together.</p></aside></section>
+
+  <section aria-labelledby="evidence-title"><h2 id="evidence-title">Gameplay &amp; Systems</h2><div class="grid"><article class="card"><div class="media"><img src="images/Player_Lobby.gif" alt="Independent lobby controls" loading="lazy"></div><div class="body"><h3>Independent Lobby Controls</h3><p>Each player selects their character and color through their own lobby card.</p></div></article>
+    <article class="card"><div class="media"><img src="images/Cookingminigame.gif" alt="Multi-phase cooking gameplay" loading="lazy"></div><div class="body"><h3>Multi-Phase Cooking</h3><p>The cooking minigame moves between gameplay phases with sequence-based camera rigs.</p></div></article>
+    <article class="card"><div class="media"><img src="images/Player_Results.gif" alt="Shared results screen" loading="lazy"></div><div class="body"><h3>Shared Results</h3><p>Results connect each round to the wider minigame playlist and session flow.</p></div></article></div></section>
+
+  <section aria-labelledby="tech-title"><h2 id="tech-title">How I Built It</h2><div class="grid"><article class="card"><div class="body"><h3>Player Input &amp; UI Ownership</h3><p>PlayerInputManager handles dynamic joining. Per-player MultiplayerEventSystems give each lobby card its own controls; shared menus use a global EventSystem.</p></div></article>
+    <article class="card"><div class="body"><h3>Camera &amp; UI Presentation</h3><p>Different camera setups support each minigame. I integrated per-player UI and visibility so interfaces appear in the correct split-screen view.</p></div></article>
+    <article class="card"><div class="body"><h3>Reusable Game Flow</h3><p>A persistent Boot scene and GameFlowController coordinate additive minigame loading, sequencing, results, and returning to the lobby.</p></div></article></div></section>
+
+  <section class="tools-section" aria-labelledby="tools-title">
+    <h2 id="tools-title">Tools Used</h2>
+    <ul class="tools-row" aria-label="Development tools">
+      <li class="pill">Unity 6</li>
+      <li class="pill">C#</li>
+      <li class="pill">URP</li>
+      <li class="pill">Input System</li>
+      <li class="pill">Cinemachine</li>
+      <li class="pill">GitHub</li>
+    </ul>
+  </section>
+</main>
+<footer><a class="btn" href="index.html#projects">← Back to Projects</a><div class="hr" role="presentation"></div><small>© <span id="y">2026</span> Luis Fernandez. Built with vanilla HTML/CSS.</small></footer>
+<script>
+  // Project links preserved from your supplied file.
+  const ITCH_URL = "https://lupa-games.itch.io/toy-tournament";
+  const BEHANCE_URL = "https://www.behance.net/gallery/242256035/Toy-Tournament";
+  document.querySelectorAll('[data-project-link]').forEach(link => {
+    const url = link.dataset.projectLink === 'itch' ? ITCH_URL : BEHANCE_URL;
+    if (url) {
+      link.href = url;
+      link.removeAttribute('aria-disabled');
+      link.removeAttribute('title');
+    } else {
+      link.addEventListener('click', event => event.preventDefault());
+    }
+  });
+  // Missing clips remain useful placeholders while you test the layout.
+  document.querySelectorAll('.media video').forEach(video => {
+    const showPlaceholder = () => {
+      if (!video.parentElement) return;
+      if (video.poster) {
+        const cover = document.createElement('img');
+        cover.src = video.getAttribute('poster');
+        cover.alt = 'Toy Tournament trailer cover';
+        video.replaceWith(cover);
+        return;
+      }
+      const placeholder = document.createElement('div');
+      placeholder.className = 'media-missing';
+      const text = document.createElement('span');
+      text.textContent = video.dataset.placeholder;
+      placeholder.append(text);
+      video.replaceWith(placeholder);
+    };
+    video.addEventListener('error', showPlaceholder, { once: true });
+    if (video.error) showPlaceholder();
+  });
+  document.querySelectorAll('.media img[data-placeholder]').forEach(image => {
+    const showPlaceholder = () => {
+      if (!image.parentElement) return;
+      const placeholder = document.createElement('div');
+      placeholder.className = 'media-missing';
+      const text = document.createElement('span');
+      text.textContent = image.dataset.placeholder;
+      placeholder.append(text);
+      image.replaceWith(placeholder);
+    };
+    image.addEventListener('error', showPlaceholder, { once: true });
+    if (image.complete && image.naturalWidth === 0) showPlaceholder();
+  });
+  const menuBtn = document.getElementById('menuBtn');
+  const nav = document.getElementById('topNav');
+  const links = document.getElementById('navLinks');
+  menuBtn?.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', String(open));
+  });
+  links?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    nav.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+  }));
+  document.getElementById('y').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
