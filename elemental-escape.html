@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Elemental Escape — Luis Fernandez</title>
+  <meta name="description" content="Elemental Escape: a Unity puzzle game where you wake up in a jail cell and use fire and frost to solve puzzles. Gameplay programming, combat, UI, and dragon boss implementation by Luis Fernandez.">
+  <meta name="color-scheme" content="dark light">
+  <link rel="stylesheet" href="CSS/style.css">
+  <style>
+    /* Page-specific styles; keep your existing CSS/style.css. */
+    .elemental-page { --elemental-radius: 16px; }
+    .elemental-page .hero { grid-template-columns: 1fr 1.15fr; padding-top: 3rem; }
+    .elemental-page .hero p { max-width: 52ch; }
+    .elemental-page .hero .role-line { color: var(--text); }
+    .elemental-page .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: .65rem; margin: 1.2rem 0; }
+    .elemental-page .fact { padding: .8rem; border: 1px solid var(--border); border-radius: 12px; background: var(--card); }
+    .elemental-page .fact strong, .elemental-page .fact span { display: block; }
+    .elemental-page .fact strong { font-size: 1.12rem; line-height: 1.3; }
+    .elemental-page .fact span { font-size: .85rem; color: var(--muted); }
+    .elemental-page .media { margin: 0; aspect-ratio: 16 / 9; background: #0e0f16; overflow: hidden; position: relative; }
+    .elemental-page .media video, .elemental-page .media img { display: block; width: 100%; height: 100%; object-fit: contain; }
+    .elemental-page .hero-visual { margin: 0; border: 1px solid var(--border); border-radius: var(--elemental-radius); overflow: hidden; box-shadow: var(--shadow); background: var(--card); }
+    .elemental-page .hero-visual figcaption { padding: .8rem 1rem; color: var(--muted); font-size: .9rem; }
+    .elemental-page .section-intro { max-width: 68ch; color: var(--muted); margin: -.3rem 0 1.3rem; }
+    .elemental-page .points { padding-left: 1.2rem; margin: .6rem 0 0; }
+    .elemental-page .points li { margin: .55rem 0; }
+    .elemental-page .card .body { padding: 1.1rem; }
+    .elemental-page .card p:last-child { margin-bottom: 0; }
+    .elemental-page .credit p { margin: .5rem 0; }
+    .elemental-page .tools-section { padding-top: 1rem; padding-bottom: 2rem; }
+    .elemental-page .tools-section h2 { font-size: 1.05rem; margin-bottom: .6rem; }
+    .elemental-page .tools-row { display: flex; flex-wrap: wrap; gap: .4rem; list-style: none; padding: 0; margin: 0; }
+    .elemental-page .tools-row .pill { margin: 0; }
+    .elemental-page details { border-top: 1px solid var(--border); padding: .9rem 1.1rem; }
+    .elemental-page summary { cursor: pointer; color: var(--link); }
+    .elemental-page details p { margin: .7rem 0 0; color: var(--muted); }
+    .elemental-page [hidden] { display: none !important; }
+    .elemental-page .media { width: 100%; }
+    .elemental-page .hero > *, .elemental-page .grid > * { min-width: 0; }
+    .elemental-page summary:focus-visible { outline: 2px solid var(--link, #9fc8ff); outline-offset: 4px; }
+    @media (max-width: 980px) { .elemental-page .hero { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) { .elemental-page .facts { grid-template-columns: 1fr; } }
+
+    .elemental-page .capture { display: flex; align-items: center; justify-content: center; height: 100%; box-sizing: border-box; padding: 1.5rem; text-align: center; background: linear-gradient(135deg, #19384b, #35283d 55%, #603522); color: #e8e8ea; }
+    .elemental-page .capture span { max-width: 30ch; }
+    .elemental-page details { padding: .85rem 1.1rem; border-top: 1px solid var(--border); }
+    .elemental-page summary { cursor: pointer; color: var(--link); }
+    .elemental-page details p { color: var(--muted); margin: .7rem 0 0; }
+</style>
+</head>
+<body>
+<header>
+    <div class="nav" id="topNav">
+      <a class="brand" href="index.html#home" aria-label="Home">
+        <span class="brand-badge" aria-hidden="true"></span>
+        <span>Luis Fernandez</span>
+      </a>
+
+      <button class="menu-btn" aria-expanded="false" aria-controls="navLinks" id="menuBtn">Menu</button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="Resume/Fernandez_Luis_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+      </nav>
+    </div>
+  </header>
+<main class="elemental-page">
+  <section class="hero" aria-labelledby="project-title" id="top">
+    <div>
+      <div class="kicker">Unity • C# • Puzzle Adventure</div>
+      <h1 id="project-title">Elemental Escape</h1>
+      <p>Wake up in a jail cell and use fire and frost to solve the puzzles standing between you and freedom.</p>
+      <div class="facts" aria-label="Project at a glance">
+        <div class="fact"><strong>Fire &amp; Frost</strong><span>Switch elements to solve puzzles</span></div>
+        <div class="fact"><strong>3D puzzle game</strong><span>Environmental puzzles &amp; spell combat</span></div>
+        <div class="fact"><strong>My role</strong><span>Gameplay programming &amp; design</span></div>
+      </div>
+      <p class="role-line">I built the elemental interactions, combat and resource systems, UI behavior, and the dragon boss sequence.</p>
+      <div class="cta">
+        <!-- These external links appear after their URLs are added to PROJECT_LINKS below. -->
+        <a class="btn primary" data-project-link="itch" hidden target="_blank" rel="noopener">Play on Itch.io</a>
+        <a class="btn" data-project-link="github" hidden target="_blank" rel="noopener">View on GitHub</a>
+        <a class="btn" href="#contributions">See My Work</a>
+      </div>
+    </div>
+    <figure class="hero-visual">
+      <div class="media" data-media="hero" data-label="Elemental Escape gameplay overview">
+        <div class="capture"><span>Elemental Escape<br>Gameplay capture coming soon</span></div>
+      </div>
+    </figure>
+  </section>
+
+  <section aria-labelledby="gameplay-title">
+    <h2 id="gameplay-title">Two Elements. A Way Out.</h2>
+    <p class="section-intro">Starting inside a jail cell, players use elemental abilities to interact with their surroundings, overcome obstacles, and find a way forward.</p>
+    <div class="grid">
+      <article class="card">
+        <div class="media" data-media="puzzles" data-label="Fire and frost puzzle gameplay">
+          <div class="capture"><span>Fire &amp; Frost Puzzles<br>Gameplay capture coming soon</span></div>
+        </div>
+        <div class="body">
+          <h3>Fire &amp; Frost Puzzles</h3>
+          <p>Switch between fire and frost to solve environmental puzzles. Burn objects with fire and freeze blocks with frost to change how you move through the level.</p>
+        </div>
+        <details>
+          <summary>How I built it</summary>
+          <p>I implemented the elemental interactions and ability switching that let players use different powers to overcome obstacles. Supporting interaction scripts handle moving blocks with timed resets and teleport points with on-screen prompts.</p>
+        </details>
+      </article>
+      <article class="card">
+        <div class="media" data-media="combat" data-label="Projectile attacks and mana management">
+          <div class="capture"><span>Spell Combat &amp; Mana<br>Gameplay capture coming soon</span></div>
+        </div>
+        <div class="body">
+          <h3>Spell Combat &amp; Mana</h3>
+          <p>Aim and cast projectiles while keeping track of your mana. Each shot uses mana, which begins regenerating after a delay.</p>
+        </div>
+        <details>
+          <summary>How I built it</summary>
+          <p>A ray from the center of the camera determines the aim point, and a physics projectile travels toward it from the casting position. The attack checks for enough mana before firing. Separate scripts manage mana regeneration, damage, and animated resource displays.</p>
+        </details>
+      </article>
+      <article class="card">
+        <div class="media" data-media="dragon" data-label="Fire dragon takeoff and tornado attacks">
+          <div class="capture"><span>Fire Dragon Encounter<br>Gameplay capture coming soon</span></div>
+        </div>
+        <div class="body">
+          <h3>Fire Dragon Encounter</h3>
+          <p>Face a fire dragon that speaks before taking flight and summoning damaging tornadoes. Switch to frost to damage the dragon while avoiding its attacks.</p>
+        </div>
+        <details>
+          <summary>How I built it</summary>
+          <p>I coordinated dialogue, animation playback, and transform movement for the introduction and takeoff. Defined zones shape the attack pattern, while damage scripts attached to the tornado effects turn the visuals into hazards. Frost provides the elemental counter to the fire dragon.</p>
+        </details>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="contributions" class="about">
+    <div>
+      <h2 id="contributions">My Contribution</h2>
+      <p>I programmed the systems that connect puzzle interactions, spell combat, and the boss encounter into a playable experience.</p>
+      <ul class="points">
+        <li><strong>Elemental gameplay:</strong> switching between fire and frost and using each ability to interact with puzzle objects.</li>
+        <li><strong>Combat &amp; resources:</strong> projectile aiming, damage handling, player health, mana costs, and delayed mana regeneration.</li>
+        <li><strong>Boss implementation:</strong> dialogue sequencing, animated takeoff, transform movement, and tornado attacks within defined zones.</li>
+        <li><strong>Enemy behavior:</strong> navigation-based pursuit, health tracking, and configurable collectible drops.</li>
+        <li><strong>UI &amp; interactions:</strong> animated health and mana bars, camera-facing enemy health displays, and teleport prompts.</li>
+      </ul>
+    </div>
+    <aside class="panel credit" aria-labelledby="focus-title">
+      <h3 id="focus-title">Project Focus</h3>
+      <p><strong>Using the right element for the challenge.</strong></p>
+      <p>Fire and frost give players different ways to solve obstacles. The dragon encounter carries that same idea into combat: recognizing its fire element tells the player to use frost.</p>
+      <p class="muted">My work focused on gameplay programming, system integration, and coordinating the interactions and feedback that make these mechanics function together.</p>
+    </aside>
+  </section>
+
+  <section class="tools-section" aria-labelledby="tools-title">
+    <h2 id="tools-title">Tools Used</h2>
+    <ul class="tools-row" aria-label="Development tools">
+      <li class="pill">Unity</li>
+      <li class="pill">C#</li>
+      <li class="pill">Unity Animator</li>
+      <li class="pill">NavMesh</li>
+      <li class="pill">TextMeshPro</li>
+    </ul>
+  </section>
+</main>
+<footer>
+  <a class="btn" href="index.html#projects">← Back to Projects</a>
+  <div class="hr" role="presentation"></div>
+  <small>© <span id="y">2026</span> Luis Fernandez. Built with vanilla HTML/CSS.</small>
+</footer>
+<script>
+  /* SETUP
+     Save this file beside index.html. It uses your existing CSS/style.css.
+     Add real project URLs below; blank values keep the corresponding buttons hidden.
+     Media accepts screenshots, GIFs, MP4 or WebM. Paths are relative to this HTML file.
+     Example: hero: "images/Elemental_Escape_Thumb.png"
+     Example: dragon: "videos/Elemental_Escape_Dragon.mp4"
+  */
+  const PROJECT_LINKS = {
+    itch: "https://froxtyforge.itch.io/elemental-escape",
+    github: ""
+  };
+  const MEDIA = {
+    hero: "images/Elemental_Escape_Background.png",
+    puzzles: "videos/Elemental_Escape_FireFrost.mp4",
+    combat: "videos/Elemental_Escape_Mana.mp4",
+    dragon: "videos/Elemental_Escape_Dragon.mp4"
+  };
+
+  document.querySelectorAll('[data-project-link]').forEach(link => {
+    const url = PROJECT_LINKS[link.dataset.projectLink];
+    if (!url) return;
+    try {
+      const parsed = new URL(url);
+      if (!['http:', 'https:'].includes(parsed.protocol)) return;
+      link.href = parsed.href;
+      link.hidden = false;
+    } catch { /* Keep unconfigured or invalid links hidden. */ }
+  });
+
+  document.querySelectorAll('[data-media]').forEach(slot => {
+    const path = MEDIA[slot.dataset.media];
+    if (!path) return;
+    const isVideo = /\.(mp4|webm)(?:[?#].*)?$/i.test(path);
+    const media = document.createElement(isVideo ? 'video' : 'img');
+    if (isVideo) {
+      media.autoplay = true;
+      media.loop = true;
+      media.muted = true;
+      media.defaultMuted = true;
+      media.playsInline = true;
+      media.controls = false;
+      media.preload = 'metadata';
+      media.setAttribute('muted', '');
+      media.setAttribute('aria-label', slot.dataset.label);
+    } else {
+      media.alt = slot.dataset.label;
+      media.loading = slot.dataset.media === 'hero' ? 'eager' : 'lazy';
+      if (slot.dataset.media === 'hero') media.setAttribute('fetchpriority', 'high');
+    }
+    const placeholder = slot.firstElementChild;
+    media.addEventListener('error', () => slot.replaceChildren(placeholder), { once: true });
+    slot.replaceChildren(media);
+    media.src = path;
+  });
+
+  const menuBtn = document.getElementById('menuBtn');
+  const nav = document.getElementById('topNav');
+  const links = document.getElementById('navLinks');
+  const closeMenu = () => {
+    nav.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+  };
+  menuBtn.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', String(open));
+  });
+  links.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && nav.classList.contains('open')) {
+      closeMenu();
+      menuBtn.focus();
+    }
+  });
+  document.getElementById('y').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

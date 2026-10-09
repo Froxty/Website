@@ -102,7 +102,7 @@
             <div class="capture"><span>Character Switching<br>Gameplay capture coming soon</span></div>
           </div>
           <div class="body"><h3>Character Switching</h3><p>Switch characters while the camera and HUD update to show who you control.</p></div>
-          <details><summary>How I built it</summary><p>PartySwitchManager routes input to the active character, swaps character cameras, and sends a change event. ProfileHudSwapper uses DOTween to animate the active portrait and health display.</p></details>
+          <details><summary>How I built it</summary><p>PartySwitchManager routes input to the active character, swaps character cameras, and sends a change event. ProfileHudSwapper uses Tween to animate the active portrait and health display.</p></details>
         </article>
       <article class="card">
           <!-- Add this clip's real path in MEDIA below. Accepts GIF, PNG/JPG, or MP4/WebM. -->
@@ -146,7 +146,7 @@
     <h2 id="tools-title">Tools Used</h2>
     <ul class="tools-row" aria-label="Development tools">
       <li class="pill">Unity</li><li class="pill">C#</li><li class="pill">Input System</li>
-      <li class="pill">Cinemachine</li><li class="pill">DOTween</li><li class="pill">TextMeshPro</li>
+      <li class="pill">Cinemachine</li><li class="pill">TextMeshPro</li>
     </ul>
   </section>
 </main>
@@ -158,9 +158,9 @@
 <script>
   // EDIT: Insert your exact GIF, screenshot, or video paths. Empty values leave the capture placeholders.
   const MEDIA = {
-    switching: "",
-    puzzles: "",
-    interactions: ""
+    switching: "videos/CapyBun_CharacterSwitchv2.mp4",
+    puzzles: "videos/CapyBun_PuzzleProgressv2.mp4",
+    interactions: "videos/CapyBun_CameraGuided.mp4"
   };
   document.querySelectorAll('[data-media]').forEach(slot => {
     const path = MEDIA[slot.dataset.media];
@@ -168,9 +168,14 @@
     const isVideo = /\.(mp4|webm)(?:[?#].*)?$/i.test(path);
     const media = document.createElement(isVideo ? 'video' : 'img');
     if (isVideo) {
-      media.controls = true;
+      media.autoplay = true;
+      media.loop = true;
+      media.muted = true;
+      media.defaultMuted = true;
       media.playsInline = true;
-      media.preload = 'none';
+      media.controls = false;
+      media.preload = 'metadata';
+      media.setAttribute('muted', '');
       media.setAttribute('aria-label', slot.dataset.label);
     } else {
       media.alt = slot.dataset.label;

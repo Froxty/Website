@@ -12,287 +12,281 @@
 </head>
 
 <body>
-  <!-- Header / Navigation -->
-  <header>
-    <div class="nav" id="topNav">
-      <a class="brand" href="#home" aria-label="Home">
-        <span class="brand-badge" aria-hidden="true"></span>
-        <span>Luis Fernandez</span>
-      </a>
+<!-- Header / Navigation -->
+<header>
+  <div class="nav" id="topNav">
+    <a class="brand" href="#home" aria-label="Home">
+      <span class="brand-badge" aria-hidden="true"></span>
+      <span>Luis Fernandez</span>
+    </a>
 
-      <!-- Mobile menu toggle -->
-      <button class="menu-btn" aria-expanded="false" aria-controls="navLinks" id="menuBtn">Menu</button>
+    <!-- Mobile menu toggle -->
+    <button class="menu-btn" aria-expanded="false" aria-controls="navLinks" id="menuBtn">Menu</button>
 
-      <!-- Nav links -->
-      <nav class="nav-links" id="navLinks">
-        <a href="#projects">Projects</a>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-        <a href="Resume/Fernandez_Luis_Resume.pdf" target="_blank" rel="noopener">Resume</a>
-      </nav>
+    <!-- Nav links -->
+    <nav class="nav-links" id="navLinks">
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+      <a href="Resume/Fernandez_Luis_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero Section -->
+<main id="home" class="hero" aria-labelledby="hero-title">
+  <div>
+    <div class="kicker">Game Developer • Game Designer • Systems</div>
+    <h1 id="hero-title">Luis Fernandez</h1>
+    <p>
+      I’m a generalist game developer with a strong foundation in programming, but I genuinely love exploring every part of the game-development process.
+      I mainly work in Unity and Roblox (Lua), and I enjoy everything from coding and UI/UX to the full 3D pipeline and VFX.
+      There’s always so much to learn, and that’s my favorite part of making games. It’s a combination of so many arts working together!
+    </p>
+    <div class="cta">
+      <a class="btn primary" href="#projects">View Projects</a>
+      <a class="btn" href="#contact">Get in Touch</a>
     </div>
-  </header>
+  </div>
+  <div class="hero-art"
+       role="img"
+       aria-label="Luis Fernandez logo"
+       style="background-image:url('images/Froxty_Icon.png');">
+  </div>
+</main>
 
-  <!-- Hero Section -->
-  <main id="home" class="hero" aria-labelledby="hero-title">
-    <div>
-      <div class="kicker">Game Developer • Game Designer • Systems</div>
-      <h1 id="hero-title">Luis Fernandez</h1>
-      <p>
-        I’m a generalist game developer with a strong foundation in programming, but I genuinely love exploring every part of the game-development process.
-         I mainly work in Unity and Roblox (Lua), and I enjoy everything from coding and UI/UX to the full 3D pipeline and VFX.
-          There’s always so much to learn, and that’s my favorite part of making games. It’s a combination of so many arts working together!
-      </p>
-      <div class="cta">
-        <a class="btn primary" href="#projects">View Projects</a>
-        <a class="btn" href="#contact">Get in Touch</a>
+<!-- Projects -->
+<section id="projects" aria-labelledby="projects-title">
+  <h2 id="projects-title">Featured Projects</h2>
+
+  <div class="projects-grid" role="list">
+
+    <!-- Project 1 – Toy Tournament -->
+    <article class="card project-card project-toy" role="listitem">
+      <div class="thumb" style="
+        background-image:url('images/Trailer_CoverWide.png');
+        background-size:contain;
+        background-repeat:no-repeat;
+      "></div>
+      <div class="body">
+        <h3>Toy Tournament (Unity)</h3>
+        <p>
+          A toy-themed couch co-op competitive gameshow where 2-4 players
+          battle it out in a variety of minigames!
+        </p>
+        <a class="btn" href="toy-tournament.html">View project</a>
       </div>
-    </div>
-    <div class="hero-art"
-         role="img"
-         aria-label="Luis Fernandez logo"
-         style="background-image:url('images/Froxty_Icon.png');">
-    </div>
-  </main>
-
-    <!-- Projects -->
-    <section id="projects" aria-labelledby="projects-title">
-      <h2 id="projects-title">Featured Projects</h2>
-      <!-- <p class="muted">Click and drag</p> -->
-
-      <div class="projects-track draggable-scroller" role="list">
-        <!-- Project 1 – Toy Tournament -->
-        <article class="card" role="listitem">
-          <div class="thumb" style="
-            background-image:url('images/Trailer_CoverWide.png');
-            background-size:100% 100%;
-            background-repeat:no-repeat;
-        "></div>
-          <div class="body">
-            <h3>Toy Tournament (Unity)</h3>
-            <p>
-              A toy-themed couch co-op competitive gameshow where 2-4 players battle it out in a variety of minigames!
-            </p>
-            <!-- swap this link later if you have a specific build / repo -->
-            <a class="btn" href="toy-tournament.html">View project</a>
-          </div>
-          <div class="tags">
-            <span class="pill">Unity</span>
-            <span class="pill">C#</span>
-            <span class="pill">2D/3D</span>
-            <span class="pill">UI/UX</span>
-            <span class="pill">Group Project</span>
-          </div>
-        </article>
-
-        <!-- Project 2 – CapyBun Dungeon Adventure -->
-        <article class="card" role="listitem">
-          <div class="thumb" style="background-image:url('images/CapyBun_Thumb.png');"></div>
-          <div class="body">
-            <h3>CapyBun Dungeon Adventure (Unity)</h3>
-            <p>
-              Asynchronous co-op puzzle level where players swap between Capybarda and Spellbun to solve
-              dungeon puzzles and reunite at the exit.
-            </p>
-            <!-- CapyBun project detail page -->
-            <a class="btn" href="capybun.html">View project</a>
-          </div>
-          <div class="tags">
-            <span class="pill">Unity</span>
-            <span class="pill">C#</span>
-            <span class="pill">2D/3D</span>
-            <span class="pill">UI/UX</span>
-            <span class="pill">Group Project</span>
-          </div>
-        </article>
-
-        <!-- Project 3 – Elemental Mastery -->
-        <article class="card" role="listitem">
-          <div class="thumb" style="background-image:url('images/ElementalMastery_Thumb.png');"></div>
-          <div class="body">
-            <h3>Elemental Mastery (Unity 2D)</h3>
-            <p>
-              2D platformer where players swap between Fire, Frost, and Life orbs for different buffs and
-              take on an elemental boss encounter.
-            </p>
-            <a class="btn" href="https://github.com/Froxty" target="_blank" rel="noopener">View on GitHub</a>
-          </div>
-          <div class="tags">
-            <span class="pill">Unity</span>
-            <span class="pill">2D</span>
-            <span class="pill">C#</span>
-          </div>
-        </article>
-
-        <!-- Project 4 – Color Match -->
-        <article class="card" role="listitem">
-          <div class="thumb" style="background-image:url('images/Color_Match_Icon.png');"></div>
-          <div class="body">
-            <h3>Color Match (Roblox)</h3>
-            <p>
-              Multiplayer color-matching mini-game with server-generated target colors, accuracy scoring,
-              timer-based rounds, persistent stats, and achievements.
-            </p>
-            <a class="btn" href="color-match.html">View project</a>
-          </div>
-          <div class="tags">
-            <span class="pill">Roblox</span>
-            <span class="pill">Lua</span>
-            <span class="pill">DataStore</span>
-            <span class="pill">UI/UX</span>
-            <span class="pill">Group Project</span>
-          </div>
-        </article>
-
-        <!-- Project 5 – Buff/Debuff System -->
-        <article class="card" role="listitem">
-          <div class="thumb" style="background-image:url('images/CHANGETHIS');"></div>
-          <div class="body">
-            <h3>Buff/Debuff System (Unity Package)</h3>
-            <p>
-              Reusable status framework with stacking, cleanses, slows, DoTs/HoTs, and inspector-friendly
-              configuration for quick reuse across projects.
-            </p>
-            <a class="btn" href="#" aria-disabled="true">Docs soon</a>
-          </div>
-          <div class="tags">
-            <span class="pill">Unity</span>
-            <span class="pill">C#</span>
-            <span class="pill">Systems</span>
-          </div>
-        </article>
+      <div class="tags">
+        <span class="pill">Unity</span>
+        <span class="pill">C#</span>
+        <span class="pill">2D/3D</span>
+        <span class="pill">UI/UX</span>
+        <span class="pill">Group Project</span>
       </div>
-    </section>
+    </article>
 
-  <!-- About -->
-  <section id="about" class="about" aria-labelledby="about-title">
-    <div>
-      <h2 id="about-title">About Me</h2>
-      <p> I’m a generalist game developer with a strong programming foundation and a genuine love for every part of the game-development pipeline. I mainly work in Unity and Roblox (Lua), and I enjoy building gameplay systems, creating UI/UX, and working through the full 3D pipeline from modeling and texturing to animation and VFX. I love how many different arts come together in game development, and I’m always exploring new tools and workflows to make better experiences.
-      </p>
-      <p> I’m a systems-minded developer who focuses on mechanics that feel responsive, readable, and fun. I iterate quickly, write clean and modular code, and use VFX, sound, and smart UI to give players strong feedback. I also understand secure client–server relationships and how to keep important logic server-side to prevent exploits and maintain fair gameplay.
-      </p>
-      <p><strong>Tools I use:</strong> Unity (URP/HDRP, Shader Graph, VFX Graph), C#, Roblox Studio (Lua), Blender, Substance 3D Painter, and Git.
-      </p>
+    <!-- Project 2 – CapyBun Dungeon Adventure -->
+    <article class="card project-card project-capybun" role="listitem">
+      <div class="thumb" style="background-image:url('images/CapyBun_Thumb.png');"></div>
+      <div class="body">
+        <h3>CapyBun Dungeon Adventure (Unity)</h3>
+        <p>
+          Asynchronous co-op puzzle level where players swap between
+          Capybarda and Spellbun to solve dungeon puzzles and reunite at the exit.
+        </p>
+        <a class="btn" href="capybun.html">View project</a>
+      </div>
+      <div class="tags">
+        <span class="pill">Unity</span>
+        <span class="pill">C#</span>
+        <span class="pill">2D/3D</span>
+        <span class="pill">UI/UX</span>
+        <span class="pill">Group Project</span>
+      </div>
+    </article>
 
-    </div>
+    <!-- Project 3 – Color Match -->
+    <article class="card project-card project-color" role="listitem">
+      <div class="thumb" style="background-image:url('images/Color_Match_Icon.png');"></div>
+      <div class="body">
+        <h3>Color Match (Roblox)</h3>
+        <p>
+          Multiplayer color-matching mini-game with server-generated target
+          colors, accuracy scoring, timer-based rounds, persistent stats,
+          and achievements.
+        </p>
+        <a class="btn" href="color-match.html">View project</a>
+      </div>
+      <div class="tags">
+        <span class="pill">Roblox</span>
+        <span class="pill">Lua</span>
+        <span class="pill">DataStore</span>
+        <span class="pill">UI/UX</span>
+        <span class="pill">Group Project</span>
+      </div>
+    </article>
 
-    <aside class="panel" aria-labelledby="highlights-title">
-      <h3 id="highlights-title">What I Do</h3>
-      <ul class="list">
-        <li>Gameplay programming and systems design in Unity and Roblox.</li>
-        <li>Client–server logic, data persistence, and player stats.</li>
-        <li>Full 3D pipeline: modeling, texturing, rigging, animation, and VFX.</li>
-        <li>UX-focused UI, readability, and player feedback loops.</li>
-      </ul>
-    </aside>
-  </section>
+    <!-- Project 4 – Elemental Escape -->
+    <article class="card project-card project-elemental project-escape" role="listitem">
+      <!-- Replace this placeholder with a screenshot when ready. -->
+      <div class="thumb" style="background-image:url('images/Elemental_Escape_Background.png');"></div>
+      <div class="body">
+        <h3>Elemental Escape (Unity)</h3>
+        <p>
+          Wake up in a jail cell and switch between fire and frost to solve
+          environmental puzzles, find your way out, and face a fire dragon.
+        </p>
+        <a class="btn" href="elemental-escape.html">View project</a>
+      </div>
+      <div class="tags">
+        <span class="pill">Unity</span>
+        <span class="pill">C#</span>
+        <span class="pill">3D</span>
+        <span class="pill">Puzzle</span>
+        <span class="pill">Gameplay Systems</span>
+      </div>
+    </article>
 
-  <!-- Skills -->
-  <section id="skills" aria-labelledby="skills-title">
-    <h2 id="skills-title">Skills</h2>
-    <div>
-      <span class="pill">Unity</span>
-      <span class="pill">Roblox</span>
-      <span class="pill">Unreal Engine</span>
-      <span class="pill">C#</span>
-      <span class="pill">C++</span>
-      <span class="pill">Python</span>
-      <span class="pill">HTML/CSS/JS</span>
-      <span class="pill">Gameplay Systems</span>
-      <span class="pill">VFX / Shader Graph</span>
-      <span class="pill">Prototyping</span>
-      <span class="pill">Git / GitHub</span>
-      <span class="pill">Blender</span>
-      <span class="pill">Substance Painter</span>
-      <span class="pill">Photoshop</span>
-    </div>
-  </section>
+    <!-- Project 5 – Elemental Mastery -->
+    <article class="card project-card project-elemental" role="listitem">
+      <div class="thumb" style="background-image:url('images/ElementalMastery_Thumb.png');"></div>
+      <div class="body">
+        <h3>Elemental Mastery (Unity 2D)</h3>
+        <p>
+          2D platformer where players swap between Fire, Frost, and Life
+          orbs for different buffs and take on an elemental boss encounter.
+        </p>
+        <a class="btn" href="https://github.com/Froxty"
+           target="_blank" rel="noopener">View on GitHub</a>
+      </div>
+      <div class="tags">
+        <span class="pill">Unity</span>
+        <span class="pill">2D</span>
+        <span class="pill">C#</span>
+      </div>
+    </article>
 
-  <!-- Contact -->
-  <section id="contact" class="contact" aria-labelledby="contact-title">
-    <div class="panel">
-      <h2 id="contact-title">Contact</h2>
-      <p class="muted">Open to internships, junior roles, and collaboration on indie prototypes.</p>
-      <ul class="list">
-        <li>📧 <a href="mailto:Froxtman@gmail.com">Froxtman@gmail.com</a></li>
-        <li>💼 <a href="https://www.linkedin.com/in/luis-fernandez-94b55795/" target="_blank" rel="noopener">LinkedIn</a></li>
-        <li>🧑‍💻 <a href="https://github.com/Froxty" target="_blank" rel="noopener">GitHub</a></li>
-        <li>🎮 <a href="#" aria-disabled="true">Itch.io (soon)</a></li>
-      </ul>
-    </div>
-    <div class="panel">
-      <h3>Currently</h3>
-      <ul class="list">
-        <li>Studying Digital Arts &amp; Sciences at the University of Florida.</li>
-        <li>Building systems-heavy prototypes in Unity and Roblox.</li>
-        <li>Open to gameplay / tools internships and junior roles.</li>
-      </ul>
-    </div>
-  </section>
+    <!-- Project 6 – Future Unity Package -->
+    <article class="card project-card project-systems" role="listitem">
+      <div class="thumb thumb-placeholder" aria-hidden="true">
+        <span>
+          Buff / Debuff
+          <span class="placeholder-subtitle">Gameplay Systems · Unity Package</span>
+        </span>
+      </div>
+      <div class="body">
+        <h3>Buff/Debuff System (Unity Package)</h3>
+        <p>
+          Reusable status framework with stacking, cleanses, slows,
+          DoTs/HoTs, and inspector-friendly configuration for quick reuse
+          across projects.
+        </p>
+        <span class="btn project-pending">Docs soon</span>
+      </div>
+      <div class="tags">
+        <span class="pill">Unity</span>
+        <span class="pill">C#</span>
+        <span class="pill">Systems</span>
+      </div>
+    </article>
 
-  <!-- Footer -->
-  <footer>
-    <div class="hr" role="presentation"></div>
-    <small>© <span id="y">2025</span> Luis Fernandez. Built with vanilla HTML/CSS.</small>
-  </footer>
+  </div>
+</section>
 
-  <!-- JS: menu toggle + dynamic year -->
-  <script>
-    const menuBtn = document.getElementById('menuBtn');
-    const nav = document.getElementById('topNav');
-    const links = document.getElementById('navLinks');
+<!-- About -->
+<section id="about" class="about" aria-labelledby="about-title">
+  <div>
+    <h2 id="about-title">About Me</h2>
+    <p> I’m a generalist game developer with a strong programming foundation and a genuine love for every part of the game-development pipeline. I mainly work in Unity and Roblox (Lua), and I enjoy building gameplay systems, creating UI/UX, and working through the full 3D pipeline from modeling and texturing to animation and VFX. I love how many different arts come together in game development, and I’m always exploring new tools and workflows to make better experiences.
+    </p>
+    <p> I’m a systems-minded developer who focuses on mechanics that feel responsive, readable, and fun. I iterate quickly, write clean and modular code, and use VFX, sound, and smart UI to give players strong feedback. I also understand secure client–server relationships and how to keep important logic server-side to prevent exploits and maintain fair gameplay.
+    </p>
+    <p><strong>Tools I use:</strong> Unity (URP/HDRP, Shader Graph, VFX Graph), C#, Roblox Studio (Lua), Blender, Substance 3D Painter, and Git.
+    </p>
 
-    // Mobile nav toggle
-    menuBtn?.addEventListener('click', () => {
-      const open = nav.classList.toggle('open');
-      menuBtn.setAttribute('aria-expanded', String(open));
-    });
+  </div>
 
-    // Close menu after selecting a link
-    links?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      nav.classList.remove('open');
-      menuBtn.setAttribute('aria-expanded', 'false');
-    }));
+  <aside class="panel" aria-labelledby="highlights-title">
+    <h3 id="highlights-title">What I Do</h3>
+    <ul class="list">
+      <li>Gameplay programming and systems design in Unity and Roblox.</li>
+      <li>Client–server logic, data persistence, and player stats.</li>
+      <li>Full 3D pipeline: modeling, texturing, rigging, animation, and VFX.</li>
+      <li>UX-focused UI, readability, and player feedback loops.</li>
+    </ul>
+  </aside>
+</section>
 
-    // Update footer year
-    document.getElementById('y').textContent = new Date().getFullYear();
+<!-- Skills -->
+<section id="skills" aria-labelledby="skills-title">
+  <h2 id="skills-title">Skills</h2>
+  <div>
+    <span class="pill">Unity</span>
+    <span class="pill">Roblox</span>
+    <span class="pill">Unreal Engine</span>
+    <span class="pill">C#</span>
+    <span class="pill">C++</span>
+    <span class="pill">Python</span>
+    <span class="pill">HTML/CSS/JS</span>
+    <span class="pill">Gameplay Systems</span>
+    <span class="pill">VFX / Shader Graph</span>
+    <span class="pill">Prototyping</span>
+    <span class="pill">Git / GitHub</span>
+    <span class="pill">Blender</span>
+    <span class="pill">Substance Painter</span>
+    <span class="pill">Photoshop</span>
+  </div>
+</section>
 
-    // Draggable horizontal scrollers (for Featured Projects)
-    const scrollers = document.querySelectorAll('.draggable-scroller');
+<!-- Contact -->
+<section id="contact" class="contact" aria-labelledby="contact-title">
+  <div class="panel">
+    <h2 id="contact-title">Contact</h2>
+    <p class="muted">Open to internships, all roles, and collaboration on indie prototypes.</p>
+    <ul class="list">
+      <li>📧 <a href="mailto:Froxtman@gmail.com">Froxtman@gmail.com</a></li>
+      <li>💼 <a href="https://www.linkedin.com/in/luis-fernandez-94b55795/" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li>🧑‍💻 <a href="https://github.com/Froxty" target="_blank" rel="noopener">GitHub</a></li>
+      <li>🎮 <a href="https://froxtyforge.itch.io/" target="_blank" rel="noopener">Itch.io</a></li>
+    </ul>
+  </div>
+  <div class="panel">
+    <h3>Currently</h3>
+    <ul class="list">
+      <li>Building systems-heavy prototypes in Unity and Roblox.</li>
+      <li>Open to gameplay / tools internships and junior roles.</li>
+    </ul>
+  </div>
+</section>
 
-    scrollers.forEach(scroller => {
-      let isDown = false;
-      let startX;
-      let scrollLeft;
+<!-- Footer -->
+<footer>
+  <div class="hr" role="presentation"></div>
+  <small>© <span id="y">2025</span> Luis Fernandez. Built with vanilla HTML/CSS.</small>
+</footer>
 
-      scroller.addEventListener('mousedown', (e) => {
-        isDown = true;
-        scroller.classList.add('dragging');
-        startX = e.pageX - scroller.offsetLeft;
-        scrollLeft = scroller.scrollLeft;
-      });
+<!-- JS: menu toggle + dynamic year -->
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const nav = document.getElementById('topNav');
+  const links = document.getElementById('navLinks');
 
-      scroller.addEventListener('mouseleave', () => {
-        isDown = false;
-        scroller.classList.remove('dragging');
-      });
+  // Mobile nav toggle
+  menuBtn?.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', String(open));
+  });
 
-      scroller.addEventListener('mouseup', () => {
-        isDown = false;
-        scroller.classList.remove('dragging');
-      });
+  // Close menu after selecting a link
+  links?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    nav.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+  }));
 
-      scroller.addEventListener('mousemove', (e) => {
-        if (!isDown) return;
-        e.preventDefault();
-        const x = e.pageX - scroller.offsetLeft;
-        const walk = (x - startX); // drag speed
-        scroller.scrollLeft = scrollLeft - walk;
-      });
-    });
+  // Update footer year
+  document.getElementById('y').textContent = new Date().getFullYear();
 
-  </script>
+</script>
 </body>
 </html>
