@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="CSS/style.css">
 </head>
 
-<body>
+<body class="project-color">
   <!-- Header / Navigation (same as index) -->
   <header>
     <div class="nav" id="topNav">
@@ -31,8 +31,16 @@
     </div>
   </header>
 
+  <!-- Back to Projects Button -->
+  <div class="project-back">
+    <a class="btn back-to-projects" href="index.html#projects">
+      <span class="back-arrow" aria-hidden="true">←</span>
+      <span>Back to Projects</span>
+    </a>
+  </div>
+
   <!-- Project Hero -->
-  <main class="hero" aria-labelledby="project-title" id="top">
+  <main class="hero project-hero" aria-labelledby="project-title" id="top">
     <div>
       <div class="kicker">Roblox Mini-Game • Systems • UI</div>
       <h1 id="project-title">Color Match</h1>
@@ -42,14 +50,20 @@
         as possible before the timer runs out.
       </p>
       <div class="cta">
-        <a class="btn" href="index.html#projects">← Back to Projects</a>
-        <a class="btn primary"
-          href="https://www.roblox.com/games/18948499396/Color-Match#!/about"
-          target="_blank"
-          rel="noopener">
-          Play on Roblox
+        <a class="btn primary bounce-button" href="https://www.roblox.com/games/18948499396/Color-Match#!/about" target="_blank" rel="noopener" aria-label="Play on Roblox">
+          <span>Play on</span>
+
+          <span class="bounce-word" aria-hidden="true">
+            <span style="--i: 0;">R</span>
+            <span style="--i: 1;">o</span>
+            <span style="--i: 2;">b</span>
+            <span style="--i: 3;">l</span>
+            <span style="--i: 4;">o</span>
+            <span style="--i: 5;">x</span>
+          </span>
         </a>
       </div>
+
       <div style="margin-top:1rem;">
         <span class="pill">Roblox</span>
         <span class="pill">Lua</span>
@@ -213,8 +227,17 @@
 
   <!-- Footer -->
   <footer>
+    <a class="btn back-to-projects" href="index.html#projects">
+      <span class="back-arrow" aria-hidden="true">←</span>
+      <span>Back to Projects</span>
+    </a>
+
     <div class="hr" role="presentation"></div>
-    <small>© <span id="y">2025</span> Luis Fernandez. Built with vanilla HTML/CSS.</small>
+
+    <small>
+      © <span id="y">2026</span> Luis Fernandez.
+      Built with vanilla HTML/CSS.
+    </small>
   </footer>
 
   <!-- JS: menu toggle + dynamic year (same as index) -->

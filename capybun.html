@@ -10,7 +10,7 @@
   <style>
     /* Page-specific styles; keep your existing CSS/style.css. */
     .capy-page { --capy-radius: 16px; }
-    .capy-page .hero { grid-template-columns: 1fr 1.15fr; padding-top: 3rem; }
+    .capy-page .hero { grid-template-columns: 1fr 1.15fr; }
     .capy-page .hero p { max-width: 52ch; }
     .capy-page .hero .role-line { color: var(--text); }
     .capy-page .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: .65rem; margin: 1.2rem 0; }
@@ -49,7 +49,7 @@
     .capy-page details p { color: var(--muted); margin: .7rem 0 0; }
 </style>
 </head>
-<body>
+<body class="project-capybun">
 <header>
     <div class="nav" id="topNav">
       <a class="brand" href="index.html#home" aria-label="Home">
@@ -67,9 +67,18 @@
         <a href="Resume/Fernandez_Luis_Resume.pdf" target="_blank" rel="noopener">Resume</a>
       </nav>
     </div>
-  </header>
+</header>
+
+<!-- Back to Projects Button -->
+<div class="project-back">
+  <a class="btn back-to-projects" href="index.html#projects">
+    <span class="back-arrow" aria-hidden="true">←</span>
+    <span>Back to Projects</span>
+  </a>
+</div>
+
 <main class="capy-page">
-  <section class="hero" aria-labelledby="project-title" id="top">
+  <section class="hero project-hero" aria-labelledby="project-title" id="top">
     <div>
       <div class="kicker">Unity • C# • Puzzle Adventure</div>
       <h1 id="project-title">CapyBun Dungeon Adventure</h1>
@@ -81,7 +90,19 @@
       </div>
       <p class="role-line">I programmed the character controls, puzzle interactions, inventory, camera behavior, and functional UI.</p>
       <div class="cta">
-        <a class="btn primary" href="https://froxtyforge.itch.io/capybun-dungeon-adventure" target="_blank" rel="noopener">Play on Itch.io</a>
+        <a class="btn primary bounce-button" href="https://froxtyforge.itch.io/capybun-dungeon-adventure" target="_blank" rel="noopener" aria-label="Play on Itch.io">
+          <span>Play on</span>
+          
+          <span class="bounce-word" aria-hidden="true">
+            <span style="--i: 0;">I</span>
+            <span style="--i: 1;">t</span>
+            <span style="--i: 2;">c</span>
+            <span style="--i: 3;">h</span>
+            <span style="--i: 4;">.</span>
+            <span style="--i: 5;">i</span>
+            <span style="--i: 6;">o</span>
+          </span>
+        </a>
         <a class="btn" href="https://github.com/Froxty/Capybun_Dungeon_Adventure" target="_blank" rel="noopener">View on GitHub</a>
         <a class="btn" href="#contributions">See My Work</a>
       </div>
@@ -151,9 +172,17 @@
   </section>
 </main>
 <footer>
-  <a class="btn" href="index.html#projects">← Back to Projects</a>
+  <a class="btn back-to-projects" href="index.html#projects">
+    <span class="back-arrow" aria-hidden="true">←</span>
+    <span>Back to Projects</span>
+  </a>
+
   <div class="hr" role="presentation"></div>
-  <small>© <span id="y">2026</span> Luis Fernandez. Built with vanilla HTML/CSS.</small>
+
+  <small>
+    © <span id="y">2026</span> Luis Fernandez.
+    Built with vanilla HTML/CSS.
+  </small>
 </footer>
 <script>
   // EDIT: Insert your exact GIF, screenshot, or video paths. Empty values leave the capture placeholders.

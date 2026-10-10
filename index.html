@@ -4,11 +4,39 @@
   <!-- Luis Fernandez — Game Developer Portfolio -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Luis Fernandez - Game Developer</title>
-  <meta name="description" content="Portfolio of Luis Fernandez — Game developer focused on Unity, Roblox, gameplay systems, and VFX.">
+  <title>Luis Fernandez - Game &amp; Software Developer</title>
+  <meta name="description" content="Portfolio of Luis Fernandez — Game and software developer focused on gameplay systems, interactive applications, and user experiences.">
   <meta name="color-scheme" content="dark light" />
   <!-- External stylesheet -->
   <link rel="stylesheet" href="CSS/style.css">
+
+  <style>
+    /* Homepage additions; the shared stylesheet still supplies the theme. */
+    .project-card .contribution { font-size: .9rem; margin: 0 0 1rem; }
+    .project-card .contribution strong { color: var(--text); }
+    .skills-intro { color: var(--muted); max-width: 66ch; margin: 0 0 1.5rem; }
+    .skill-groups { display: grid; gap: 1rem; }
+    .skill-group { display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 1rem; padding: 1.25rem; border: 1px solid var(--border); border-radius: 16px; background: var(--card); }
+    .skill-group h3 { font-size: 1rem; margin: 0; }
+    .skill-pills { display: flex; flex-wrap: wrap; align-content: start; gap: .45rem; list-style: none; padding: 0; margin: 0; }
+    .skill-pills .pill { margin: 0; }
+    .skills-proof-title { margin: 2rem 0 1rem; font-size: 1.2rem; }
+    .skills-proof { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+    .proof-card { display: flex; flex-direction: column; min-width: 0; padding: 1.25rem; border: 1px solid var(--border); border-top: 3px solid var(--project-accent); border-radius: 12px; background: var(--card); }
+    .proof-card h4 { margin: 0 0 .5rem; font-size: 1rem; }
+    .proof-card p { color: var(--muted); margin: 0 0 1rem; }
+    .proof-card a { margin-top: auto; color: var(--link); text-underline-offset: .2em; }
+    .proof-card a:hover { color: var(--project-accent); }
+    .skills-progress { margin-top: 1rem; padding: 1rem 1.25rem; border: 1px dashed var(--border); border-radius: 12px; color: var(--muted); }
+    .skills-progress strong { color: var(--text); }
+    .skills-progress p { margin: 0; }
+    .skills-progress a { color: var(--link); text-underline-offset: .2em; }
+    #currently, #status-system { scroll-margin-top: 6rem; }
+    @media (max-width: 780px) {
+      .skill-group { grid-template-columns: 1fr; gap: .8rem; }
+      .skills-proof { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 
 <body>
@@ -37,7 +65,7 @@
 <!-- Hero Section -->
 <main id="home" class="hero" aria-labelledby="hero-title">
   <div>
-    <div class="kicker">Game Developer • Game Designer • Systems</div>
+    <div class="kicker">Game &amp; Software Developer • Systems</div>
     <h1 id="hero-title">Luis Fernandez</h1>
     <p>
       I’m a generalist game developer with a strong foundation in programming, but I genuinely love exploring every part of the game-development process.
@@ -75,6 +103,7 @@
           A toy-themed couch co-op competitive gameshow where 2-4 players
           battle it out in a variety of minigames!
         </p>
+        <p class="contribution"><strong>My work:</strong> Gameplay programming, local multiplayer framework, and UI implementation.</p>
         <a class="btn" href="toy-tournament.html">View project</a>
       </div>
       <div class="tags">
@@ -95,6 +124,7 @@
           Asynchronous co-op puzzle level where players swap between
           Capybarda and Spellbun to solve dungeon puzzles and reunite at the exit.
         </p>
+        <p class="contribution"><strong>My work:</strong> Character switching, inventory, puzzle interactions, cameras, and functional UI.</p>
         <a class="btn" href="capybun.html">View project</a>
       </div>
       <div class="tags">
@@ -116,6 +146,7 @@
           colors, accuracy scoring, timer-based rounds, persistent stats,
           and achievements.
         </p>
+        <p class="contribution"><strong>My work:</strong> Client–server logic, server-side scoring, persistent stats, and achievements.</p>
         <a class="btn" href="color-match.html">View project</a>
       </div>
       <div class="tags">
@@ -128,8 +159,7 @@
     </article>
 
     <!-- Project 4 – Elemental Escape -->
-    <article class="card project-card project-elemental project-escape" role="listitem">
-      <!-- Replace this placeholder with a screenshot when ready. -->
+    <article class="card project-card project-elementalescape" role="listitem">
       <div class="thumb" style="background-image:url('images/Elemental_Escape_Background.png');"></div>
       <div class="body">
         <h3>Elemental Escape (Unity)</h3>
@@ -137,6 +167,7 @@
           Wake up in a jail cell and switch between fire and frost to solve
           environmental puzzles, find your way out, and face a fire dragon.
         </p>
+        <p class="contribution"><strong>My work:</strong> Solo development, from gameplay programming to level implementation.</p>
         <a class="btn" href="elemental-escape.html">View project</a>
       </div>
       <div class="tags">
@@ -168,21 +199,21 @@
     </article>
 
     <!-- Project 6 – Future Unity Package -->
-    <article class="card project-card project-systems" role="listitem">
+    <article id="status-system" class="card project-card project-systems" role="listitem">
       <div class="thumb thumb-placeholder" aria-hidden="true">
         <span>
-          Buff / Debuff
+          Damage &amp; Status Effects
           <span class="placeholder-subtitle">Gameplay Systems · Unity Package</span>
         </span>
       </div>
       <div class="body">
-        <h3>Buff/Debuff System (Unity Package)</h3>
+        <h3>Damage &amp; Status Effect System (Unity Package)</h3>
         <p>
           Reusable status framework with stacking, cleanses, slows,
           DoTs/HoTs, and inspector-friendly configuration for quick reuse
           across projects.
         </p>
-        <span class="btn project-pending">Docs soon</span>
+        <span class="btn project-pending">In development</span>
       </div>
       <div class="tags">
         <span class="pill">Unity</span>
@@ -206,36 +237,80 @@
     </p>
 
   </div>
-
+  <!-- What I Do -->
   <aside class="panel" aria-labelledby="highlights-title">
     <h3 id="highlights-title">What I Do</h3>
     <ul class="list">
-      <li>Gameplay programming and systems design in Unity and Roblox.</li>
-      <li>Client–server logic, data persistence, and player stats.</li>
-      <li>Full 3D pipeline: modeling, texturing, rigging, animation, and VFX.</li>
-      <li>UX-focused UI, readability, and player feedback loops.</li>
+      <li>Gameplay programming and reusable systems.</li>
+      <li>Functional UI, interaction design, and user feedback.</li>
+      <li>Local multiplayer, client–server systems, and persistent player data.</li>
+      <li>Turning project requirements into working features.</li>
+      <li>3D asset creation, animation, and VFX integration.</li>
     </ul>
   </aside>
 </section>
 
 <!-- Skills -->
 <section id="skills" aria-labelledby="skills-title">
-  <h2 id="skills-title">Skills</h2>
-  <div>
-    <span class="pill">Unity</span>
-    <span class="pill">Roblox</span>
-    <span class="pill">Unreal Engine</span>
-    <span class="pill">C#</span>
-    <span class="pill">C++</span>
-    <span class="pill">Python</span>
-    <span class="pill">HTML/CSS/JS</span>
-    <span class="pill">Gameplay Systems</span>
-    <span class="pill">VFX / Shader Graph</span>
-    <span class="pill">Prototyping</span>
-    <span class="pill">Git / GitHub</span>
-    <span class="pill">Blender</span>
-    <span class="pill">Substance Painter</span>
-    <span class="pill">Photoshop</span>
+  <h2 id="skills-title">Skills &amp; Tools</h2>
+  <p class="skills-intro">Programming, development tools, and creative skills I bring to projects. Explore selected examples below to see the systems in action.</p>
+  <div class="skill-groups">
+    <div class="skill-group">
+      <h3 id="skill-group-0">Programming &amp; Systems</h3>
+      <ul class="skill-pills" aria-labelledby="skill-group-0">
+        <li class="pill">C#</li>
+        <li class="pill">C++</li>
+        <li class="pill">Lua</li>
+        <li class="pill">Python</li>
+        <li class="pill">HTML / CSS / JavaScript</li>
+        <li class="pill">Gameplay Systems</li>
+        <li class="pill">Local Multiplayer</li>
+        <li class="pill">Client–Server Architecture</li>
+        <li class="pill">Networked Multiplayer</li>
+        <li class="pill">State Management</li>
+        <li class="pill">Data Persistence</li>
+        <li class="pill">Prototyping</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <h3 id="skill-group-1">Engines &amp; Development Tools</h3>
+      <ul class="skill-pills" aria-labelledby="skill-group-1">
+        <li class="pill">Unity</li>
+        <li class="pill">Roblox Studio</li>
+        <li class="pill">Unreal Engine</li>
+        <li class="pill">Git / GitHub</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <h3 id="skill-group-2">Art &amp; Interactive Presentation</h3>
+      <ul class="skill-pills" aria-labelledby="skill-group-2">
+        <li class="pill">Blender</li>
+        <li class="pill">Substance Painter</li>
+        <li class="pill">Photoshop</li>
+        <li class="pill">Animation</li>
+        <li class="pill">VFX Graph</li>
+        <li class="pill">Shader Graph</li>
+        <li class="pill">UI Implementation</li>
+      </ul>
+    </div>
+  </div>
+  <h3 class="skills-proof-title">See these skills in action</h3>
+  <div class="skills-proof">
+    <article class="proof-card project-toy">
+      <h4>Local Multiplayer</h4>
+      <p>Toy Tournament: independent player joining, lobby selections, and a shared minigame flow.</p>
+      <a href="toy-tournament.html#evidence-title">Watch the lobby &amp; game flow →</a>
+    </article>
+    <article class="proof-card project-color">
+      <h4>Client–Server Systems</h4>
+      <p>Color Match: server-side scoring, saved player stats, and UI connected to game logic.</p>
+      <a href="color-match.html#tech-title">Explore the scoring &amp; data systems →</a>
+    </article>
+    <article class="proof-card project-capybun">
+      <h4>UI &amp; Gameplay Integration</h4>
+      <p>CapyBun: character switching, HUD updates, shared inventory, and connected puzzle interactions.</p>
+      <a href="capybun.html#gameplay-title">Watch the interactions &amp; read how →</a>
+    </article>
   </div>
 </section>
 
@@ -243,7 +318,10 @@
 <section id="contact" class="contact" aria-labelledby="contact-title">
   <div class="panel">
     <h2 id="contact-title">Contact</h2>
-    <p class="muted">Open to internships, all roles, and collaboration on indie prototypes.</p>
+    <p class="muted">
+      Open to opportunities in game development, software development,
+      and technical analysis, as well as freelance work and collaboration.
+    </p>
     <ul class="list">
       <li>📧 <a href="mailto:Froxtman@gmail.com">Froxtman@gmail.com</a></li>
       <li>💼 <a href="https://www.linkedin.com/in/luis-fernandez-94b55795/" target="_blank" rel="noopener">LinkedIn</a></li>
@@ -251,11 +329,13 @@
       <li>🎮 <a href="https://froxtyforge.itch.io/" target="_blank" rel="noopener">Itch.io</a></li>
     </ul>
   </div>
-  <div class="panel">
+  <div class="panel" id="currently">
     <h3>Currently</h3>
     <ul class="list">
-      <li>Building systems-heavy prototypes in Unity and Roblox.</li>
-      <li>Open to gameplay / tools internships and junior roles.</li>
+      <li>Developing a reusable damage and status effect system for the Unity Asset Store.</li>
+      <li>Using a Unity multiplayer framework I built to develop a four-player co-op physics game.</li>
+      <li>Working on a shop simulation prototype with another designer.</li>
+      <li>Interested in opportunities across games, applications, and developer tools.</li>
     </ul>
   </div>
 </section>

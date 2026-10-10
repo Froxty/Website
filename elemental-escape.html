@@ -49,7 +49,7 @@
     .elemental-page details p { color: var(--muted); margin: .7rem 0 0; }
 </style>
 </head>
-<body>
+<body class="project-elementalescape">
 <header>
     <div class="nav" id="topNav">
       <a class="brand" href="index.html#home" aria-label="Home">
@@ -67,7 +67,16 @@
         <a href="Resume/Fernandez_Luis_Resume.pdf" target="_blank" rel="noopener">Resume</a>
       </nav>
     </div>
-  </header>
+</header>
+
+<!-- Back to Projects Button -->
+<div class="project-back">
+  <a class="btn back-to-projects" href="index.html#projects">
+    <span class="back-arrow" aria-hidden="true">←</span>
+    <span>Back to Projects</span>
+  </a>
+</div>
+
 <main class="elemental-page">
   <section class="hero" aria-labelledby="project-title" id="top">
     <div>
@@ -130,7 +139,7 @@
         </div>
         <div class="body">
           <h3>Fire Dragon Encounter</h3>
-          <p>Face a fire dragon that speaks before taking flight and summoning damaging tornadoes. Switch to frost to damage the dragon while avoiding its attacks.</p>
+          <p>Face a dragon that summons  swirl of flame-nados. Can you dodge his barrage attack and bring down the dragon.</p>
         </div>
         <details>
           <summary>How I built it</summary>
@@ -167,23 +176,22 @@
       <li class="pill">C#</li>
       <li class="pill">Unity Animator</li>
       <li class="pill">NavMesh</li>
-      <li class="pill">TextMeshPro</li>
     </ul>
   </section>
 </main>
 <footer>
-  <a class="btn" href="index.html#projects">← Back to Projects</a>
+  <!-- Back to Projects Button -->
+  <div class="project-back">
+    <a class="btn back-to-projects" href="index.html#projects">
+      <span class="back-arrow" aria-hidden="true">←</span>
+      <span>Back to Projects</span>
+    </a>
+  </div>
   <div class="hr" role="presentation"></div>
   <small>© <span id="y">2026</span> Luis Fernandez. Built with vanilla HTML/CSS.</small>
 </footer>
 <script>
-  /* SETUP
-     Save this file beside index.html. It uses your existing CSS/style.css.
-     Add real project URLs below; blank values keep the corresponding buttons hidden.
-     Media accepts screenshots, GIFs, MP4 or WebM. Paths are relative to this HTML file.
-     Example: hero: "images/Elemental_Escape_Thumb.png"
-     Example: dragon: "videos/Elemental_Escape_Dragon.mp4"
-  */
+  <!-- ---LINKS--- -->
   const PROJECT_LINKS = {
     itch: "https://froxtyforge.itch.io/elemental-escape",
     github: ""
