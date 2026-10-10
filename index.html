@@ -185,16 +185,20 @@
       <div class="body">
         <h3>Elemental Mastery (Unity 2D)</h3>
         <p>
-          2D platformer where players swap between Fire, Frost, and Life
-          orbs for different buffs and take on an elemental boss encounter.
+          Wield Fire, Frost, and Life in a 2D platformer. Choose passive
+          orbs, collect cores across three levels, and summon the final boss.
         </p>
-        <a class="btn" href="https://github.com/Froxty"
-           target="_blank" rel="noopener">View on GitHub</a>
+        <p class="contribution"><strong>My work:</strong> Solo game design and programming,
+          including spellcasting, orb effects, platforming, enemy behavior,
+          and progression.</p>
+        <a class="btn" href="elemental-mastery.html">View project</a>
       </div>
       <div class="tags">
         <span class="pill">Unity</span>
-        <span class="pill">2D</span>
         <span class="pill">C#</span>
+        <span class="pill">2D Platformer</span>
+        <span class="pill">Gameplay Systems</span>
+        <span class="pill">Solo Project</span>
       </div>
     </article>
 
@@ -253,7 +257,7 @@
 <!-- Skills -->
 <section id="skills" aria-labelledby="skills-title">
   <h2 id="skills-title">Skills &amp; Tools</h2>
-  <p class="skills-intro">Programming, development tools, and creative skills I bring to projects. Explore selected examples below to see the systems in action.</p>
+  <p class="skills-intro">Programming, development tools, and creative skills I bring to projects.</p>
   <div class="skill-groups">
     <div class="skill-group">
       <h3 id="skill-group-0">Programming &amp; Systems</h3>
@@ -348,25 +352,75 @@
 
 <!-- JS: menu toggle + dynamic year -->
 <script>
-  const menuBtn = document.getElementById('menuBtn');
-  const nav = document.getElementById('topNav');
-  const links = document.getElementById('navLinks');
+  // ── Navigation and footer ──────────────────────────────
+  const menuBtn = document.getElementById("menuBtn");
+  const nav = document.getElementById("topNav");
+  const navLinks = document.getElementById("navLinks");
 
-  // Mobile nav toggle
-  menuBtn?.addEventListener('click', () => {
-    const open = nav.classList.toggle('open');
-    menuBtn.setAttribute('aria-expanded', String(open));
+  menuBtn?.addEventListener("click", () => {
+    if (!nav) return;
+
+    const open = nav.classList.toggle("open");
+    menuBtn.setAttribute("aria-expanded", String(open));
   });
 
-  // Close menu after selecting a link
-  links?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    nav.classList.remove('open');
-    menuBtn.setAttribute('aria-expanded', 'false');
-  }));
+  navLinks?.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      nav?.classList.remove("open");
+      menuBtn?.setAttribute("aria-expanded", "false");
+    });
+  });
 
-  // Update footer year
-  document.getElementById('y').textContent = new Date().getFullYear();
+  const year = document.getElementById("y");
+  if (year) year.textContent = new Date().getFullYear();
+  
+  const hoverSound = new Audio("./audio/HoverSFX.wav");
+  hoverSound.preload = "auto";
+  hoverSound.volume = 0.08;
 
+  let soundEnabled = false;
+  let enablingSound = false;
+  let lastSoundTime = -Infinity;
+  
+  async function enableSound() {
+    if (soundEnabled || enablingSound) return;
+    enablingSound = true;
+
+    try {
+      hoverSound.currentTime = 0;
+      await hoverSound.play();
+
+      soundEnabled = true;
+      lastSoundTime = performance.now();
+
+      document.removeEventListener("click", enableSound);
+      document.removeEventListener("keydown", enableSound);
+    } catch (error) {
+      console.warn("Could not enable hover sound:", error);
+    } finally {
+      enablingSound = false;
+    }
+  }
+
+  document.addEventListener("click", enableSound);
+  document.addEventListener("keydown", enableSound);
+
+  document
+          .querySelectorAll(".project-card:not(.project-systems)")
+          .forEach(card => {
+            card.addEventListener("pointerenter", event => {
+              if (event.pointerType !== "mouse" || !soundEnabled) return;
+
+              const now = performance.now();
+              if (now - lastSoundTime < 150) return;
+              lastSoundTime = now;
+
+              hoverSound.currentTime = 0;
+              hoverSound.play().catch(error => {
+                console.warn("Hover playback failed:", error);
+              });
+            });
+          });
 </script>
 </body>
 </html>

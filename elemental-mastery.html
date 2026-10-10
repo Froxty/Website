@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Elemental Escape - Luis Fernandez</title>
-  <meta name="description" content="Elemental Escape: a Unity puzzle game where you wake up in a jail cell and use fire and frost to solve puzzles. Gameplay programming, combat, UI, and dragon boss implementation by Luis Fernandez.">
+  <title>Elemental Mastery — Luis Fernandez</title>
+  <meta name="description" content="Elemental Mastery: a solo Unity 2D platformer with elemental spells, passive orbs, and a three-level core-collection journey leading to a final boss. Gameplay programming and design by Luis Fernandez.">
   <meta name="color-scheme" content="dark light">
   <link rel="stylesheet" href="CSS/style.css">
   <style>
@@ -43,26 +43,39 @@
     .elemental-page details { padding: .85rem 1.1rem; border-top: 1px solid var(--border); }
     .elemental-page summary { cursor: pointer; color: var(--link); }
     .elemental-page details p { color: var(--muted); margin: .7rem 0 0; }
-</style>
+
+    .elemental-page .hero-visual {
+      border: 2px solid #fff;
+      border-radius: var(--elemental-radius, 16px);
+      overflow: hidden;
+    }
+
+    .elemental-page .media > video, .elemental-page .media > img {
+      object-fit: var(--media-fit, contain);
+      object-position: var(--media-position, center);
+      transform: scale(var(--media-zoom, 1));
+    }
+    .elemental-page .capture { background: linear-gradient(135deg, #153348, #352445 55%, #214730); }
+  </style>
 </head>
-<body class="project-elementalescape">
+<body class="project-elemental">
 <header>
-    <div class="nav" id="topNav">
-      <a class="brand" href="index.html#home" aria-label="Home">
-        <span class="brand-badge" aria-hidden="true"></span>
-        <span>Luis Fernandez</span>
-      </a>
+  <div class="nav" id="topNav">
+    <a class="brand" href="index.html#home" aria-label="Home">
+      <span class="brand-badge" aria-hidden="true"></span>
+      <span>Luis Fernandez</span>
+    </a>
 
-      <button class="menu-btn" aria-expanded="false" aria-controls="navLinks" id="menuBtn">Menu</button>
+    <button class="menu-btn" aria-expanded="false" aria-controls="navLinks" id="menuBtn">Menu</button>
 
-      <nav class="nav-links" id="navLinks">
-        <a href="index.html#projects">Projects</a>
-        <a href="index.html#about">About</a>
-        <a href="index.html#skills">Skills</a>
-        <a href="index.html#contact">Contact</a>
-        <a href="Resume/Fernandez_Luis_Resume.pdf" target="_blank" rel="noopener">Resume</a>
-      </nav>
-    </div>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#skills">Skills</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="Resume/Fernandez_Luis_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+    </nav>
+  </div>
 </header>
 
 <!-- Back to Projects Button -->
@@ -76,105 +89,82 @@
 <main class="elemental-page">
   <section class="hero project-hero" aria-labelledby="project-title" id="top">
     <div>
-      <div class="kicker">Unity • C# • Puzzle Adventure</div>
-      <h1 id="project-title">Elemental Escape</h1>
-      <p>Wake up in a jail cell and use fire and frost to solve the puzzles standing between you and freedom.</p>
+      <div class="kicker">Unity • C# • 2D Platformer</div>
+      <h1 id="project-title">Elemental Mastery</h1>
+      <p>A small 2D platformer featuring elemental orbs, enemy encounters, and a final boss summoned using collected elemental cores.</p>
+
       <div class="facts" aria-label="Project at a glance">
-        <div class="fact"><strong>Fire &amp; Frost</strong><span>Switch elements to solve puzzles</span></div>
-        <div class="fact"><strong>3D puzzle game</strong><span>Environmental puzzles &amp; spell combat</span></div>
+        <div class="fact"><strong>3 elements</strong><span>Frost, Fire &amp; Life</span></div>
+        <div class="fact"><strong>3 levels</strong><span>Core collection &amp; a final boss</span></div>
         <div class="fact"><strong>My role</strong><span>Gameplay programming &amp; design</span></div>
       </div>
-      <p class="role-line">I built the elemental interactions, combat and resource systems, UI behavior, and the dragon boss sequence.</p>
-      <div class="cta">
-        <!-- These external links appear after their URLs are added to PROJECT_LINKS below. -->
-        <a class="btn primary bounce-button" href="https://froxtyforge.itch.io/elemental-escape" target="_blank" rel="noopener" aria-label="Play on Itch.io">
-          <span>Play on</span>
 
-          <span class="bounce-word" aria-hidden="true">
-            <span style="--i: 0;">I</span>
-            <span style="--i: 1;">t</span>
-            <span style="--i: 2;">c</span>
-            <span style="--i: 3;">h</span>
-            <span style="--i: 4;">.</span>
-            <span style="--i: 5;">i</span>
-            <span style="--i: 6;">o</span>
-          </span>
+      <p class="role-line">I designed and programmed this solo project, including its passive orb effects, enemy behavior, and boss-summoning system.</p>
+      <div class="cta">
+        <!-- The Play button appears only after you add its URL below. -->
+        <a class="btn primary bounce-button" data-project-link="itch" hidden target="_blank" rel="noopener" aria-label="Play on Itch.io">
+          <span>Play on</span>
+          <span class="bounce-word" aria-hidden="true"><span style="--i: 0;">I</span><span style="--i: 1;">t</span><span style="--i: 2;">c</span><span style="--i: 3;">h</span><span style="--i: 4;">.</span><span style="--i: 5;">i</span><span style="--i: 6;">o</span></span>
         </a>
-        <a class="btn" data-project-link="github" hidden target="_blank" rel="noopener">View on GitHub</a>
         <a class="btn" href="#contributions">See My Work</a>
       </div>
     </div>
     <figure class="hero-visual">
-      <div class="media" data-media="hero" data-label="Elemental Escape gameplay overview">
-        <div class="capture"><span>Elemental Escape<br>Gameplay capture coming soon</span></div>
+      <div class="media" data-media="hero" data-label="Elemental Mastery gameplay overview">
+        <div class="capture"><span>Elemental Mastery<br>Gameplay capture coming soon</span></div>
       </div>
     </figure>
   </section>
 
   <section aria-labelledby="gameplay-title">
-    <h2 id="gameplay-title">Two Elements. A Way Out.</h2>
-    <p class="section-intro">Starting inside a jail cell, players use elemental abilities to interact with their surroundings, overcome obstacles, and find a way forward.</p>
+    <h2 id="gameplay-title">Gameplay Highlights</h2>
+    <p class="section-intro">Three systems from this small 2D project: passive orb effects, enemy behavior, and a summoned boss encounter.</p>
     <div class="grid">
       <article class="card">
-        <div class="media" data-media="puzzles" data-label="Fire and frost puzzle gameplay">
-          <div class="capture"><span>Fire &amp; Frost Puzzles<br>Gameplay capture coming soon</span></div>
+        <div class="media" data-media="orbs" data-label="Passive orb selection and orbiting effects">
+          <div class="capture"><span>Three Orbs, Three Different Benefits<br>Gameplay capture coming soon</span></div>
         </div>
         <div class="body">
-          <h3>Fire &amp; Frost Puzzles</h3>
-          <p>Switch between fire and frost to solve environmental puzzles. Burn objects with fire and freeze blocks with frost to change how you move through the level.</p>
+          <h3>Three Orbs, Three Different Benefits</h3>
+          <p>Activate one passive orb at a time: Fire boosts movement speed, Frost improves jumping, and Life regenerates health and mana.</p>
         </div>
         <details>
           <summary>How I built it</summary>
-          <p>I implemented the elemental interactions and ability switching that let players use different powers to overcome obstacles. Supporting interaction scripts handle moving blocks with timed resets and teleport points with on-screen prompts.</p>
+          <p>I built an orb manager that connects the selected orb to movement speed, jump strength, or health and mana regeneration. Separate follow and swirl behavior keeps the orbs moving around the player.</p>
         </details>
       </article>
       <article class="card">
-        <div class="media" data-media="combat" data-label="Projectile attacks and mana management">
-          <div class="capture"><span>Spell Combat &amp; Mana<br>Gameplay capture coming soon</span></div>
+        <div class="media" data-media="enemies" data-label="Enemy patrol, pursuit, and combat reactions">
+          <div class="capture"><span>Enemies That Patrol &amp; Pursue<br>Gameplay capture coming soon</span></div>
         </div>
         <div class="body">
-          <h3>Spell Combat &amp; Mana</h3>
-          <p>Aim and cast projectiles while keeping track of your mana. Each shot uses mana, which begins regenerating after a delay.</p>
+          <h3>Enemies That Patrol &amp; Pursue</h3>
+          <p>Enemies patrol the world and chase the player, adding pressure to exploration and platforming.</p>
         </div>
         <details>
           <summary>How I built it</summary>
-          <p>A ray from the center of the camera determines the aim point, and a physics projectile travels toward it from the casting position. The attack checks for enough mana before firing. Separate scripts manage mana regeneration, damage, and animated resource displays.</p>
+          <p>I built patrol and chase behavior with supporting animation and enemy health scripts. This connects enemy movement, visual reactions, and defeat behavior to the combat system.</p>
         </details>
       </article>
       <article class="card">
-        <div class="media" data-media="dragon" data-label="Fire dragon takeoff and tornado attacks">
-          <div class="capture"><span>Fire Dragon Encounter<br>Gameplay capture coming soon</span></div>
+        <div class="media" data-media="progression" data-label="Core collection, the summoning altar, and the final boss">
+          <div class="capture"><span>Summoned Boss Encounter<br>Gameplay capture coming soon</span></div>
         </div>
         <div class="body">
-          <h3>Fire Dragon Encounter</h3>
-          <p>Face a dragon that summons  swirl of flame-nados. Can you dodge his barrage attack and bring down the dragon.</p>
+          <h3>Summoned Boss Encounter</h3>
+          <p>Collect elemental cores to summon the final boss. Defeating it completes the game.</p>
         </div>
         <details>
           <summary>How I built it</summary>
-          <p>I coordinated dialogue, animation playback, and transform movement for the introduction and takeoff. Defined zones shape the attack pattern, while damage scripts attached to the tornado effects turn the visuals into hazards. Frost provides the elemental counter to the fire dragon.</p>
+          <p>I connected core collection to a summoning altar that brings the final boss into play, giving the player a goal that leads into the last encounter.</p>
         </details>
       </article>
     </div>
   </section>
 
-  <section aria-labelledby="contributions" class="about">
-    <div>
-      <h2 id="contributions">My Contribution</h2>
-      <p>I programmed the systems that connect puzzle interactions, spell combat, and the boss encounter into a playable experience.</p>
-      <ul class="points">
-        <li><strong>Elemental gameplay:</strong> switching between fire and frost and using each ability to interact with puzzle objects.</li>
-        <li><strong>Combat &amp; resources:</strong> projectile aiming, damage handling, player health, mana costs, and delayed mana regeneration.</li>
-        <li><strong>Boss implementation:</strong> dialogue sequencing, animated takeoff, transform movement, and tornado attacks within defined zones.</li>
-        <li><strong>Enemy behavior:</strong> navigation-based pursuit, health tracking, and configurable collectible drops.</li>
-        <li><strong>UI &amp; interactions:</strong> animated health and mana bars, camera-facing enemy health displays, and teleport prompts.</li>
-      </ul>
-    </div>
-    <aside class="panel credit" aria-labelledby="focus-title">
-      <h3 id="focus-title">Project Focus</h3>
-      <p><strong>Using the right element for the challenge.</strong></p>
-      <p>Fire and frost give players different ways to solve obstacles. The dragon encounter carries that same idea into combat: recognizing its fire element tells the player to use frost.</p>
-      <p class="muted">My work focused on gameplay programming, system integration, and coordinating the interactions and feedback that make these mechanics function together.</p>
-    </aside>
+  <section aria-labelledby="contributions">
+    <h2 id="contributions">My Contribution</h2>
+    <p class="section-intro">Solo game design and gameplay programming in Unity. I built the orb effects, enemy patrol and pursuit, and core-based boss summoning, then integrated their animation and visual feedback into a short playable prototype.</p>
   </section>
 
   <section class="tools-section" aria-labelledby="tools-title">
@@ -183,7 +173,8 @@
       <li class="pill">Unity</li>
       <li class="pill">C#</li>
       <li class="pill">Unity Animator</li>
-      <li class="pill">NavMesh</li>
+      <li class="pill">Shader Graph</li>
+      <li class="pill">VFX Graph</li>
     </ul>
   </section>
 </main>
@@ -199,16 +190,21 @@
   <small>© <span id="y">2026</span> Luis Fernandez. Built with vanilla HTML/CSS.</small>
 </footer>
 <script>
-  <!-- ---LINKS--- -->
+  // Project links: add the playable build URL when available.
   const PROJECT_LINKS = {
-    itch: "https://froxtyforge.itch.io/elemental-escape",
-    github: ""
+    itch: ""
   };
+
+  // ALL MEDIA: add your actual GIF, image, MP4, or WebM paths here.
+  // Empty paths show the existing placeholders; example filenames are suggestions.
+  // Videos autoplay silently and loop like GIFs.
+  // fit: "contain" = show everything, "cover" = fill/crop, "fill" = stretch.
+  // zoom: 1 = normal, 1.2 = 20% closer. position: "center", "top", etc.
   const MEDIA = {
-    hero: "images/Elemental_Escape_Background.png",
-    puzzles: "videos/Elemental_Escape_FireFrost.mp4",
-    combat: "videos/Elemental_Escape_Mana.mp4",
-    dragon: "videos/Elemental_Escape_Dragon.mp4"
+    hero:        { src: "videos/Elemental_Mastery_Showcasev2.mp4", controls:true, fit: "contain", zoom: 1, position: "center" }, // images/Elemental_Mastery_Cover.png
+    orbs:        { src: "", fit: "contain", zoom: 1, position: "center" }, // images/Elemental_Mastery_Orbs.gif
+    enemies:     { src: "", fit: "contain", zoom: 1, position: "center" }, // images/Elemental_Mastery_Enemies.gif
+    progression: { src: "", fit: "contain", zoom: 1, position: "center" }  // videos/Elemental_Mastery_Boss.mp4
   };
 
   document.querySelectorAll('[data-project-link]').forEach(link => {
@@ -223,8 +219,12 @@
   });
 
   document.querySelectorAll('[data-media]').forEach(slot => {
-    const path = MEDIA[slot.dataset.media];
-    if (!path) return;
+    const config = MEDIA[slot.dataset.media];
+    if (!config?.src) return;
+    const path = config.src;
+    slot.style.setProperty('--media-fit', config.fit || 'contain');
+    slot.style.setProperty('--media-zoom', config.zoom || 1);
+    slot.style.setProperty('--media-position', config.position || 'center');
     const isVideo = /\.(mp4|webm)(?:[?#].*)?$/i.test(path);
     const media = document.createElement(isVideo ? 'video' : 'img');
     if (isVideo) {
