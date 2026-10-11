@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Elemental Mastery — Luis Fernandez</title>
+  <title>Elemental Mastery - Luis Fernandez</title>
   <meta name="description" content="Elemental Mastery: a solo Unity 2D platformer with elemental spells, passive orbs, and a three-level core-collection journey leading to a final boss. Gameplay programming and design by Luis Fernandez.">
   <meta name="color-scheme" content="dark light">
   <link rel="stylesheet" href="CSS/style.css">
@@ -56,6 +56,8 @@
       transform: scale(var(--media-zoom, 1));
     }
     .elemental-page .capture { background: linear-gradient(135deg, #153348, #352445 55%, #214730); }
+    
+    
   </style>
 </head>
 <body class="project-elemental">
@@ -106,7 +108,6 @@
           <span>Play on</span>
           <span class="bounce-word" aria-hidden="true"><span style="--i: 0;">I</span><span style="--i: 1;">t</span><span style="--i: 2;">c</span><span style="--i: 3;">h</span><span style="--i: 4;">.</span><span style="--i: 5;">i</span><span style="--i: 6;">o</span></span>
         </a>
-        <a class="btn" href="#contributions">See My Work</a>
       </div>
     </div>
     <figure class="hero-visual">
@@ -195,16 +196,15 @@
     itch: ""
   };
 
-  // ALL MEDIA: add your actual GIF, image, MP4, or WebM paths here.
-  // Empty paths show the existing placeholders; example filenames are suggestions.
-  // Videos autoplay silently and loop like GIFs.
+  // ALL MEDIA: GIF, image, MP4, or WebM paths go here.
+  // Videos autoplay silently and loop
   // fit: "contain" = show everything, "cover" = fill/crop, "fill" = stretch.
   // zoom: 1 = normal, 1.2 = 20% closer. position: "center", "top", etc.
   const MEDIA = {
-    hero:        { src: "videos/Elemental_Mastery_Showcasev2.mp4", controls:true, fit: "contain", zoom: 1, position: "center" }, // images/Elemental_Mastery_Cover.png
-    orbs:        { src: "", fit: "contain", zoom: 1, position: "center" }, // images/Elemental_Mastery_Orbs.gif
-    enemies:     { src: "", fit: "contain", zoom: 1, position: "center" }, // images/Elemental_Mastery_Enemies.gif
-    progression: { src: "", fit: "contain", zoom: 1, position: "center" }  // videos/Elemental_Mastery_Boss.mp4
+    hero:        { src: "videos/Elemental_Mastery_Showcasev2.mp4", controls:true, fit: "contain", zoom: 1, position: "center" },
+    orbs:        { src: "videos/Elemental_Mastery_Orbsv3.mp4", controls:true, fit: "contain", zoom: 1, position: "center" },
+    enemies:     { src: "videos/Elemental_Mastery_Enemiesv3.mp4", fit: "contain", zoom: 1, position: "center" },
+    progression: { src: "videos/Elemental_Mastery_Boss.mp4", controls:true, fit: "contain", zoom: 1, position: "center" } 
   };
 
   document.querySelectorAll('[data-project-link]').forEach(link => {

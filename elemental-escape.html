@@ -8,7 +8,7 @@
   <meta name="color-scheme" content="dark light">
   <link rel="stylesheet" href="CSS/style.css">
   <style>
-    /* Page-specific styles; keep your existing CSS/style.css. */
+    /* Page-specific styles */
     .elemental-page { --elemental-radius: 16px; }
     .elemental-page .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: .65rem; margin: 1.2rem 0; }
     .elemental-page .fact { padding: .8rem; border: 1px solid var(--border); border-radius: 12px; background: var(--card); }
@@ -43,6 +43,32 @@
     .elemental-page details { padding: .85rem 1.1rem; border-top: 1px solid var(--border); }
     .elemental-page summary { cursor: pointer; color: var(--link); }
     .elemental-page details p { color: var(--muted); margin: .7rem 0 0; }
+
+    /* Adjustable framing for all media. */
+    .elemental-page .media > video,
+    .elemental-page .media > img {
+      object-fit: var(--media-fit, contain);
+      object-position: var(--media-position, center);
+      transform: scale(var(--media-zoom, 1));
+    }
+
+    /* Hero media fills its column at its natural proportions. */
+    .elemental-page .hero-visual {
+      width: 100%;
+      border: 2px solid #fff;
+      border-radius: var(--elemental-radius, 16px);
+      overflow: hidden;
+    }
+
+    .elemental-page .hero-visual .media {
+      aspect-ratio: auto;
+    }
+
+    .elemental-page .hero-visual .media > video,
+    .elemental-page .hero-visual .media > img {
+      width: 100%;
+      height: auto;
+    }
 </style>
 </head>
 <body class="project-elementalescape">
@@ -101,7 +127,6 @@
           </span>
         </a>
         <a class="btn" data-project-link="github" hidden target="_blank" rel="noopener">View on GitHub</a>
-        <a class="btn" href="#contributions">See My Work</a>
       </div>
     </div>
     <figure class="hero-visual">
@@ -199,16 +224,40 @@
   <small>© <span id="y">2026</span> Luis Fernandez. Built with vanilla HTML/CSS.</small>
 </footer>
 <script>
-  <!-- ---LINKS--- -->
+  <!-- ---MEDIA LINKS--- -->
   const PROJECT_LINKS = {
     itch: "https://froxtyforge.itch.io/elemental-escape",
     github: ""
   };
   const MEDIA = {
-    hero: "images/Elemental_Escape_Background.png",
-    puzzles: "videos/Elemental_Escape_FireFrost.mp4",
-    combat: "videos/Elemental_Escape_Mana.mp4",
-    dragon: "videos/Elemental_Escape_Dragon.mp4"
+    hero: {
+      src: "videos/Elemental_Escape_Intro.mp4",
+      controls: false,
+      fit: "contain",
+      zoom: 1,
+      position: "center"
+    },
+    puzzles: {
+      src: "videos/Elemental_Escape_FireFrost.mp4",
+      controls: false,
+      fit: "contain",
+      zoom: 1,
+      position: "center"
+    },
+    combat: {
+      src: "videos/Elemental_Escape_Mana.mp4",
+      controls: false,
+      fit: "contain",
+      zoom: 1,
+      position: "center"
+    },
+    dragon: {
+      src: "videos/Elemental_Escape_Dragon.mp4",
+      controls: false,
+      fit: "contain",
+      zoom: 1,
+      position: "center"
+    }
   };
 
   document.querySelectorAll('[data-project-link]').forEach(link => {
@@ -223,29 +272,40 @@
   });
 
   document.querySelectorAll('[data-media]').forEach(slot => {
-    const path = MEDIA[slot.dataset.media];
-    if (!path) return;
-    const isVideo = /\.(mp4|webm)(?:[?#].*)?$/i.test(path);
+    const config = MEDIA[slot.dataset.media];
+    if (!config?.src) return;
+
+    slot.style.setProperty('--media-fit', config.fit || 'contain');
+    slot.style.setProperty('--media-zoom', config.zoom || 1);
+    slot.style.setProperty('--media-position', config.position || 'center');
+
+    const isVideo = /\.(mp4|webm)(?:[?#].*)?$/i.test(config.src);
     const media = document.createElement(isVideo ? 'video' : 'img');
+    const label = slot.dataset.label || 'Gameplay capture';
+
     if (isVideo) {
       media.autoplay = true;
       media.loop = true;
       media.muted = true;
       media.defaultMuted = true;
       media.playsInline = true;
-      media.controls = false;
+      media.controls = Boolean(config.controls);
       media.preload = 'metadata';
       media.setAttribute('muted', '');
-      media.setAttribute('aria-label', slot.dataset.label);
+      media.setAttribute('aria-label', label);
     } else {
-      media.alt = slot.dataset.label;
+      media.alt = label;
       media.loading = slot.dataset.media === 'hero' ? 'eager' : 'lazy';
-      if (slot.dataset.media === 'hero') media.setAttribute('fetchpriority', 'high');
     }
+
     const placeholder = slot.firstElementChild;
-    media.addEventListener('error', () => slot.replaceChildren(placeholder), { once: true });
+
+    media.addEventListener('error', () => {
+      slot.replaceChildren(placeholder);
+    }, { once: true });
+
     slot.replaceChildren(media);
-    media.src = path;
+    media.src = config.src;
   });
 
   const menuBtn = document.getElementById('menuBtn');
