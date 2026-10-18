@@ -37,6 +37,7 @@
     .toy-page details p { margin: .7rem 0 0; color: var(--muted); }
     .toy-page a[aria-disabled="true"] { opacity: .55; cursor: default; box-shadow: none; }
     .toy-page a[aria-disabled="true"]:hover { transform: none; }
+    .toy-page .media iframe { display: block; width: 100%; height: 100%; border: 0; }
     @media (max-width: 640px) { .toy-page .facts { grid-template-columns: 1fr; } }
   </style>
 </head>
@@ -93,7 +94,7 @@
 
         <div class="fact">
           <strong>My role</strong>
-          <span>Gameplay programming &amp; architecture</span>
+          <span>Gameplay Developer</span>
         </div>
       </div>
 
@@ -145,7 +146,7 @@
     </figure>
   </section>
 
-  <section aria-labelledby="overview-title"><h2 id="overview-title">Three Minigames. One Shared Framework.</h2><p class=section-intro>Each minigame has its own mechanics and camera needs, supported by the same player setup and game flow.</p><div class="grid"><article class="card"><div class="media" data-media="cooking" data-label="Cooking Chaos gameplay">
+  <section aria-labelledby="overview-title"><h2 id="overview-title">Three Minigames</h2><p class=section-intro>Each minigame has its own mechanics and camera needs, supported by the same player setup and game flow.</p><div class="grid"><article class="card"><div class="media" data-media="cooking" data-label="Cooking Chaos gameplay">
     <div class="media-missing"><span>Cooking Chaos<br>Gameplay capture coming soon</span></div>
   </div><div class="body"><h3>Cooking Chaos</h3><p>Gather, wash, chop, and cook ingredients through a multiphase minigame.</p></div></article>
     <article class="card">
@@ -156,15 +157,13 @@
     <article class="card">
       <div class="media" data-media="painting" data-label="Painting Panic gameplay: players competing to cover the grid"><div class="media-missing"><span>Painting Panic gameplay: players competing to cover the grid<br>Gameplay capture coming soon</span></div></div>
       <div class="body"><h3>Painting Panic</h3><p>Cover as much of the grid as possible to compete for board control.</p></div></article></div></section>
-
-  <section aria-labelledby="contributions" class="about"><div><h2 id="contributions">My Role</h2><p>I built the gameplay and multiplayer systems, then integrated the art and UI into Unity.</p><ul class="points"><li><strong>Players &amp; lobby:</strong> joining, character/color selection, ready states, and countdown.</li><li><strong>Input &amp; UI:</strong> independent player controls and shared-menu handoff.</li><li><strong>Cameras:</strong> player-follow, top-down, and multi-phase rigs.</li><li><strong>Game flow:</strong> additive scenes, minigame sequencing, results, and return to lobby.</li></ul></div><aside class="panel credit" aria-labelledby="team-title"><h3 id="team-title">Two-person team</h3><p><strong>Luis Fernandez</strong><br>Programming, gameplay architecture, and Unity integration.</p><p><strong>Paige Martin</strong><br>Artwork, visual assets, and UI design.</p><p class="muted">We developed gameplay ideas together.</p></aside></section>
-
+  
   <section aria-labelledby="evidence-title">
     <h2 id="evidence-title">Gameplay &amp; Systems</h2>
 
     <p class="section-intro">
-      Explore the gameplay and systems in action, or watch the
-      nine-video playlist for a closer look.
+      Explore the gameplay and systems, or watch the
+      video playlist for a closer look.
     </p>
 
     <div class="cta" style="margin-bottom: 1.5rem;">
@@ -218,15 +217,32 @@
     </div>
   </section>
 
+  <section aria-labelledby="contributions" class="about">
+    <div>
+      <h2 id="contributions">My Contributions</h2>
+        <p>I built the gameplay and multiplayer systems, then integrated the art and UI into Unity.</p>
+        <ul class="points">
+          <li><strong>Players &amp; lobby:</strong> joining, character/color selection, ready states, and countdown.
+          </li><li><strong>Input &amp; UI:</strong> independent player controls and shared-menu handoff.</li>
+          <li><strong>Cameras:</strong> player-follow, top-down, and multiphase rigs.</li>
+          <li><strong>Game flow:</strong> additive scenes, minigame sequencing, results, and return to lobby.</li>
+        </ul>
+    </div>
+    <aside class="panel credit" aria-labelledby="scope-title">
+      <h3 id="scope-title">Development &amp; Credits</h3>
+      <p>Two-person team</p>
+      <p><strong>Luis Fernandez</strong><br>Programming, gameplay architecture, and Unity integration.</p>
+      <p><strong>Paige Martin</strong><br>Artwork, visual assets, and UI design.</p>
+      <p class="muted">We developed gameplay ideas together.</p>
+    </aside>
+  </section>
+
   <section class="tools-section" aria-labelledby="tools-title">
     <h2 id="tools-title">Tools Used</h2>
     <ul class="tools-row" aria-label="Development tools">
       <li class="pill">Unity 6</li>
       <li class="pill">C#</li>
-      <li class="pill">URP</li>
       <li class="pill">Input System</li>
-      <li class="pill">Cinemachine</li>
-      <li class="pill">GitHub</li>
     </ul>
   </section>
 </main>
@@ -265,10 +281,8 @@
   // The trailer keeps controls and does not autoplay.
   const MEDIA = {
     trailer: {
-      src: "videos/Game_Trailer.mp4",
-      poster: "images/Trailer_CoverWide.png",
-      controls: true,
-      fit: "contain", zoom: 1, position: "center"
+      type: "youtube",
+      src: "https://www.youtube.com/embed/omBMpiONuq8?autoplay=0&controls=1&playsinline=1"
     },
     cooking: {
       src: "videos/cooking_chaos.mp4",
@@ -299,6 +313,22 @@
   document.querySelectorAll('.toy-page [data-media]').forEach(slot => {
     const config = MEDIA[slot.dataset.media];
     if (!config?.src) return;
+
+    // YouTube embeds use an iframe instead of a video element.
+    if (config.type === "youtube") {
+      const iframe = document.createElement("iframe");
+
+      iframe.title = slot.dataset.label || "Toy Tournament trailer";
+      iframe.loading = "eager";
+      iframe.referrerPolicy = "strict-origin-when-cross-origin";
+      iframe.allow =
+              "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen";
+      iframe.allowFullscreen = true;
+
+      slot.replaceChildren(iframe);
+      iframe.src = config.src;
+      return;
+    }
 
     const isVideo = /\.(mp4|webm)(?:[?#].*)?$/i.test(config.src);
     const media = document.createElement(isVideo ? 'video' : 'img');

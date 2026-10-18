@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Luis Fernandez — Game Developer Portfolio -->
+  <!-- Luis Fernandez - Game Developer Portfolio -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Luis Fernandez - Game &amp; Software Developer</title>
@@ -36,6 +36,93 @@
       .skill-group { grid-template-columns: 1fr; gap: .8rem; }
       .skills-proof { grid-template-columns: 1fr; }
     }
+
+    /* Navigation arrival feedback: one light sweep, followed by whole-link bounces. */
+    #projects, #contact { scroll-margin-top: 6rem; }
+    .arrival-heading {
+      display: inline-block;
+      position: relative;
+      overflow: hidden;
+      vertical-align: bottom;
+      padding: .08em .12em;
+      margin: -.08em -.12em;
+      isolation: isolate;
+    }
+    .arrival-heading::after {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 75%;
+      pointer-events: none;
+      opacity: 0;
+      background: linear-gradient(110deg,
+      transparent 18%, rgba(255,255,255,.12) 34%,
+      rgba(255,255,255,.65) 48%, rgba(255,255,255,.18) 60%,
+      transparent 78%);
+      transform: translateX(-140%);
+    }
+    .section-arrived .arrival-heading::after {
+      animation: heading-light-sweep 720ms cubic-bezier(.2,.65,.35,1) both;
+    }
+    #contact.section-arrived .contact-links > li {
+      animation: contact-link-bounce 520ms ease-out both;
+      animation-delay: calc(760ms + var(--contact-order, 0) * 140ms);
+    }
+    @keyframes heading-light-sweep {
+      0% { transform: translateX(-140%); opacity: 0; }
+      18% { opacity: 1; }
+      78% { opacity: .85; }
+      100% { transform: translateX(240%); opacity: 0; }
+    }
+    @keyframes contact-link-bounce {
+      0%, 100% { transform: translateY(0); }
+      30% { transform: translateY(-9px); }
+      58% { transform: translateY(0); }
+      78% { transform: translateY(-3px); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .section-arrived .arrival-heading::after,
+      #contact.section-arrived .contact-links > li { animation: none; }
+    }
+
+    /* Remove the rectangular light overlay. */
+    .arrival-heading::after {
+      display: none;
+    }
+
+    /* Shine only inside the heading's letters. */
+    .section-arrived .arrival-heading {
+      color: transparent;
+      background-image: linear-gradient(
+              110deg,
+              var(--text) 0%,
+              var(--text) 40%,
+              var(--accent) 47%,
+              #fff 50%,
+              var(--accent) 53%,
+              var(--text) 60%,
+              var(--text) 100%
+      );
+      background-size: 250% 100%;
+      background-repeat: no-repeat;
+      background-clip: text;
+      -webkit-background-clip: text;
+
+      animation: heading-letter-shine 720ms ease-in-out both;
+    }
+
+    @keyframes heading-letter-shine {
+      from { background-position: 100% 0; }
+      to   { background-position: 0% 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .section-arrived .arrival-heading {
+        animation: none;
+        background: none;
+        color: var(--text);
+      }
+    }
   </style>
 </head>
 
@@ -57,7 +144,7 @@
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
-      <a href="Resume/Fernandez_Luis_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+      <a href="Resume/Luis_Fernandez_Resume.pdf" target="_blank" rel="noopener">Resume</a>
     </nav>
   </div>
 </header>
@@ -68,9 +155,11 @@
     <div class="kicker">Game &amp; Software Developer • Systems</div>
     <h1 id="hero-title">Luis Fernandez</h1>
     <p>
-      I’m a generalist game developer with a strong foundation in programming, but I genuinely love exploring every part of the game-development process.
-      I mainly work in Unity and Roblox (Lua), and I enjoy everything from coding and UI/UX to the full 3D pipeline and VFX.
-      There’s always so much to learn, and that’s my favorite part of making games. It’s a combination of so many arts working together!
+      I’m a <strong>game developer</strong> generalist with a strong foundation in
+      programming and experience in 3D production and UI/UX. I
+      combine gameplay programming with an understanding of art
+      and design to build reusable systems and responsive player
+      experiences.
     </p>
     <div class="cta">
       <a class="btn primary" href="#projects" style="color: #fff;">View Projects</a>
@@ -86,7 +175,7 @@
 
 <!-- Projects -->
 <section id="projects" aria-labelledby="projects-title">
-  <h2 id="projects-title">Featured Projects</h2>
+  <h2 id="projects-title"><span class="arrival-heading">Featured Projects</span></h2>
 
   <div class="projects-grid" role="list">
 
@@ -231,16 +320,14 @@
     <h2 id="about-title">About Me</h2>
     <p> I’m a generalist game developer with a strong programming foundation and a genuine love for every part of the game-development pipeline. I mainly work in Unity and Roblox (Lua), and I enjoy building gameplay systems, creating UI/UX, and working through the full 3D pipeline from modeling and texturing to animation and VFX. I love how many different arts come together in game development, and I’m always exploring new tools and workflows to make better experiences.
     </p>
-    <p> I’m a systems-minded developer who focuses on mechanics that feel responsive, readable, and fun. I iterate quickly, write clean and modular code, and use VFX, sound, and smart UI to give players strong feedback. I also understand secure client–server relationships and how to keep important logic server-side to prevent exploits and maintain fair gameplay.
-    </p>
-    <p><strong>Tools I use:</strong> Unity (URP/HDRP, Shader Graph, VFX Graph), C#, Roblox Studio (Lua), Blender, Substance 3D Painter, and Git.
-    </p>
+    <p>I’m a systems-minded developer who focuses on mechanics that feel responsive, readable, and fun. I iterate quickly, write clean and modular code, and use VFX, sound, and smart UI to give players strong feedback. I also understand secure client–server relationships and how to keep important logic server-side to prevent exploits and maintain fair gameplay.</p>
+
 
   </div>
   <!-- What I Do -->
   <aside class="panel" aria-labelledby="highlights-title">
     <h3 id="highlights-title">What I Do</h3>
-    <ul class="list">
+    <ul class="list bullet-list">
       <li>Gameplay programming and reusable systems.</li>
       <li>Functional UI, interaction design, and user feedback.</li>
       <li>Local multiplayer, client–server systems, and persistent player data.</li>
@@ -266,7 +353,7 @@
         <li class="pill">Gameplay Systems</li>
         <li class="pill">Local Multiplayer</li>
         <li class="pill">Client–Server Architecture</li>
-        <li class="pill">Networked Multiplayer</li>
+        <li class="pill">Network Multiplayer</li>
         <li class="pill">State Management</li>
         <li class="pill">Data Persistence</li>
         <li class="pill">Prototyping</li>
@@ -279,6 +366,8 @@
         <li class="pill">Roblox Studio</li>
         <li class="pill">Unreal Engine</li>
         <li class="pill">Git / GitHub</li>
+        <li class="pill">Rider</li>
+        <li class="pill">VS Code</li>
       </ul>
     </div>
     <div class="skill-group">
@@ -317,21 +406,22 @@
 <!-- Contact -->
 <section id="contact" class="contact" aria-labelledby="contact-title">
   <div class="panel">
-    <h2 id="contact-title">Contact</h2>
+    <h2 id="contact-title"><span class="arrival-heading">Contact</span></h2>
     <p class="muted">
       Open to opportunities in game development, software development,
       and technical analysis, as well as freelance work and collaboration.
     </p>
-    <ul class="list">
+    <ul class="list contact-links">
       <li>📧 <a href="mailto:Froxtman@gmail.com">Froxtman@gmail.com</a></li>
       <li>💼 <a href="https://www.linkedin.com/in/luis-fernandez-94b55795/" target="_blank" rel="noopener">LinkedIn</a></li>
       <li>🧑‍💻 <a href="https://github.com/Froxty" target="_blank" rel="noopener">GitHub</a></li>
       <li>🎮 <a href="https://froxtyforge.itch.io/" target="_blank" rel="noopener">Itch.io</a></li>
     </ul>
   </div>
+  <!-- Currently Working On -->
   <div class="panel" id="currently">
     <h3>Currently</h3>
-    <ul class="list">
+    <ul class="list bullet-list">
       <li>Developing a reusable damage and status effect system for the Unity Asset Store.</li>
       <li>Using a Unity multiplayer framework I built to develop a four-player co-op physics game.</li>
       <li>Working on a shop simulation prototype with another designer.</li>
@@ -369,7 +459,7 @@
 
   const year = document.getElementById("y");
   if (year) year.textContent = new Date().getFullYear();
-  
+
   const hoverSound = new Audio("./audio/HoverSFX.wav");
   hoverSound.preload = "auto";
   hoverSound.volume = 0.08;
@@ -377,7 +467,7 @@
   let soundEnabled = false;
   let enablingSound = false;
   let lastSoundTime = -Infinity;
-  
+
   async function enableSound() {
     if (soundEnabled || enablingSound) return;
     enablingSound = true;
@@ -417,6 +507,68 @@
               });
             });
           });
+</script>
+<script>
+
+  // Play feedback after native anchor scrolling has actually settled, including
+  // when the page reaches its bottom before the section reaches the top.
+  (() => {
+    const sections = new Map([
+      ["#projects", document.getElementById("projects")],
+      ["#contact", document.getElementById("contact")]
+    ]);
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let pendingFrame = 0;
+
+    document.querySelectorAll(".contact-links > li").forEach((item, index) => {
+      item.style.setProperty("--contact-order", index);
+    });
+
+    document.addEventListener("click", event => {
+      if (event.defaultPrevented || event.button !== 0 ||
+              event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+
+      const link = event.target.closest("a[href]");
+      if (!link || link.hasAttribute("download") ||
+              (link.target && link.target !== "_self")) return;
+
+      const destination = new URL(link.href, document.baseURI);
+      if (destination.origin !== location.origin ||
+              destination.pathname !== location.pathname ||
+              destination.search !== location.search) return;
+
+      // Cancel an old arrival when another section is selected.
+      if (!destination.hash) return;
+      cancelAnimationFrame(pendingFrame);
+      sections.forEach(section => section?.classList.remove("section-arrived"));
+
+      const section = sections.get(destination.hash);
+      if (!section || reducedMotion.matches) return;
+
+      // Keep normal anchors, URL hashes, smooth scrolling, and the mobile menu.
+      const startedAt = performance.now();
+      let lastY = window.scrollY;
+      let stillSince = startedAt;
+
+      function waitForArrival(now) {
+        const currentY = window.scrollY;
+        if (Math.abs(currentY - lastY) > .5) stillSince = now;
+        lastY = currentY;
+
+        if ((now - startedAt >= 180 && now - stillSince >= 140) ||
+                now - startedAt > 3000) {
+          const bounds = section.getBoundingClientRect();
+          if (!reducedMotion.matches && bounds.bottom > 0 && bounds.top < innerHeight) {
+            section.classList.add("section-arrived");
+          }
+          pendingFrame = 0;
+          return;
+        }
+        pendingFrame = requestAnimationFrame(waitForArrival);
+      }
+      pendingFrame = requestAnimationFrame(waitForArrival);
+    });
+  })();
 </script>
 </body>
 </html>

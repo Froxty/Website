@@ -768,3 +768,31 @@ a:focus-visible, button:focus-visible {
     filter: none;
   }
 }
+
+/* Optional visible bullets for text lists. */
+ul.list.bullet-list {
+  display: block;
+  list-style: disc outside;
+  padding-left: 1.25rem;
+  margin: .8rem 0;
+}
+
+ul.list.bullet-list > li {
+  display: list-item;
+  padding: 0;
+  line-height: 1.6;
+}
+
+ul.list.bullet-list > li + li {
+  margin-top: .45rem;
+}
+
+/* Equal spacing between content blocks in Color Match cards. */
+.project-color .card .body > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.project-color .card .body > * + * {
+  margin-top: .8rem;
+}
